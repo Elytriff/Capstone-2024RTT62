@@ -1,4 +1,7 @@
 package com.qvainside.CapstoneProject.database.dao;
 
-public interface OrderdetailRepository extends org.springframework.data.jpa.repository.JpaRepository<com.qvainside.CapstoneProject.database.entity.Orderdetail, java.lang.Integer> {
-  }
+import com.qvainside.CapstoneProject.database.entity.Orderdetail;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface OrderdetailDAO extends JpaRepository<Orderdetail, Long> {
+}

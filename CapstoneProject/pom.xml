@@ -93,6 +93,8 @@
 			<version>1.2.5</version>
 			<scope>runtime</scope>
 		</dependency>
+
+		<!-- Spring validation -->
 	</dependencies>
 
 
