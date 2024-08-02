@@ -140,13 +140,38 @@ section {
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.411);
     }
 
-    figcaption {
+    /*figcaption {
         align-self: flex-end;
         padding: 20px 20px 0 20px;
         flex: 0 0 auto;
         width: 25%;
         min-width: 150px;
     }
+    */
+    .desccription {
+        padding-left:20px;
+        font-family: cursive;
+        font-size: 1.2rem;
+    }
+
+
+.kalnia-glaze-description {
+    font-family: "Kalnia Glaze", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wght" 400;
+    font-size: 1.5rem;
+}
+
+    .lobster-regular {
+        font-family: "Lobster", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.5rem;
+        color: #77390e;
+    }
+
 
     .credit {
         margin-top: 1rem;

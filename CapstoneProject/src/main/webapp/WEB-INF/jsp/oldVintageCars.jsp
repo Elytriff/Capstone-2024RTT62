@@ -1,10 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: oscar
-  Date: 8/1/2024
-  Time: 10:34 AM
-  To change this template use File | Settings | File Templates.
---%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="include/header.jsp" />
 
@@ -21,7 +16,7 @@
                 <li class="carousel__slide">
                     <figure>
                         <div>
-                            <img src="/pub/images/cars/laNave.JPG" alt="Blue Chevy">
+                            <img src="${pageContext.request.contextPath}/pub/images/cars/laNave.JPG" alt="Blue Chevy">
                         </div>
                         <figcaption id="laNave">
                             <!------------------------------------------Table BLue Chevy ----------------->
@@ -61,7 +56,7 @@
                 <li class="carousel__slide">
                     <figure>
                         <div>
-                            <img src="/pub/images/cars/GoldenChevy.jpg" alt="Golden Chevy">
+                            <img src="${pageContext.request.contextPath}/pub/images/cars/GoldenChevy.jpg" alt="Golden Chevy">
                         </div>
                         <figcaption id="GoldenChevy">
 
@@ -102,7 +97,7 @@
                 <li class="carousel__slide">
                     <figure>
                         <div>
-                            <img src="images/Cars/GreenCar.jpg" alt="Green Ford 52">
+                            <img src="${pageContext.request.contextPath}/pub/images/cars/GreenCar.jpg" alt="Green Ford 52">
                         </div>
                         <figcaption id="GreenCar">
 
@@ -143,7 +138,7 @@
                 <li class="carousel__slide">
                     <figure>
                         <div>
-                            <img src="images/Cars/redCar.jpg" alt="Red Buick">
+                            <img src="${pageContext.request.contextPath}/pub/images/cars/redCar.jpg" alt="Red Buick">
                         </div>
                         <figcaption id="redCar">
                             <!------------------------------------------Table Red Buick ----------------->

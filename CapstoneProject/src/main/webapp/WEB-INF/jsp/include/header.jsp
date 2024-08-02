@@ -20,7 +20,16 @@
             crossorigin="anonymous"></script>
     <!-- Font Awesome CDN-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <!-- Google Fonts CDN-->
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Lobster&display=swap" rel="stylesheet">
+
+     <!-- internal CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/homepage.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/carrusel.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/registrationPage.css">
@@ -36,11 +45,11 @@
                 <div class="col">
                 </div>
                 <div class="col-md-auto">
-                    <img src="/pub/images/icons/logo.png" alt="Qvainside Logo">
+                    <img src="${pageContext.request.contextPath}/pub/images/icons/logo.png" alt="Qvainside Logo">
                 </div>
                 <div class="col" style="justify-content: center; display: flex; flex-direction: column; align-items:center;">
                     <a  id="signInTrigger" class="aHome">Sign in</a>
-                    <a href="RegistratioPage.html" class="aHome" onclick="goToRegistration()">Register</a>
+                    <a href="${pageContext.request.contextPath}/registrationPage" class="aHome" onclick="goToRegistration()">Register</a>
                 </div>
                 <!-- Popup Form -->
                 <div id="popupForm">
@@ -56,17 +65,17 @@
 
         <!-- -----------------------------------------------Navigation Bar -------------------->
         <div class="navbar">
-            <a href="/homePage">HOME</a>
+            <a href="${pageContext.request.contextPath}/homePage">HOME</a>
 
             <div class="dropdown">
                 <button class="dropbtn">TOURS
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="/HavanaTour.html">HABANA</a>
-                    <a href="/TrinidadTour.html">TRINIDAD</a>
-                    <a href="/Viñales Tour.html">VIÑALES</a>
-                    <a href="/OldVintageCars.html">OLD VINTAGE CARS TOUR</a>
+                    <a href="${pageContext.request.contextPath}/havanaTour">HABANA</a>
+                    <a href="${pageContext.request.contextPath}/trinidadTour">TRINIDAD</a>
+                    <a href="${pageContext.request.contextPath}/viñalesTour">VIÑALES</a>
+                    <a href="${pageContext.request.contextPath}/oldVintageCars">OLD VINTAGE CARS TOUR</a>
                 </div>
             </div>
         </div>

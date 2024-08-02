@@ -1,7 +1,7 @@
 
 
-body{
-    background-image:url('../images/Places/Havana/panoramica\ San\ Francisco.jpg');
+#registrationPageBackground{
+    background-image:url('/pub/images/places/Havana/panoramica San Francisco.jpg');
     background-repeat: no-repeat;
     background-size:auto;
     background-position: center;
@@ -14,8 +14,6 @@ body{
     display: grid;
     place-items: center;
     height:auto;
-    padding: 20px;
-    padding-top: 30px;
 }
 
 .container-form {
