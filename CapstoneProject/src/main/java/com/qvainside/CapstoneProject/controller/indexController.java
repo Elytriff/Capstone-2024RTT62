@@ -49,6 +49,12 @@ public class indexController {
         ModelAndView response = new ModelAndView("registrationPage");
         return response;
     }
+
+    @GetMapping("/customerProfile")
+    public ModelAndView customerProfilePage() {
+        ModelAndView response = new ModelAndView("customer/customerProfile");
+        return response;
+    }
 }
 
 

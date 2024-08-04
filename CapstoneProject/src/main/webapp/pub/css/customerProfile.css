@@ -1,0 +1,16 @@
+#profileTable {
+    margin: 20px auto;
+    color: rgb(117, 76, 36);
+}
+
+#profileTable td {
+    padding: 10px;
+}
+
+.aEdit {
+    color: rgb(117, 76, 36);
+}
+
+.aEdit:hover {
+    color: rgb(198, 206, 22);
+}

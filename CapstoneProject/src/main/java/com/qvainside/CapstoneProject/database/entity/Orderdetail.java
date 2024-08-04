@@ -1,7 +1,6 @@
 package com.qvainside.CapstoneProject.database.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 import java.util.Date;
@@ -26,26 +25,20 @@ public class Orderdetail {
     private Order order;
 
     @ToString.Exclude
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-
-    @NotNull
     @Column(name = "booking_date", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date bookingDate;
 
-    @NotNull
     @Column(name = "duration_hours", nullable = false, precision = 10)
     private Double durationHours;
 
-    @NotNull
     @Column(name = "number_of_pax", nullable = false)
     private Integer numberOfPax;
 
-    @NotNull
     @Column(name = "total_price", nullable = false)
     private Double totalPrice;
 

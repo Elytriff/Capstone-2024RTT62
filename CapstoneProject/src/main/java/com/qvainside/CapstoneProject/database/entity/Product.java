@@ -1,7 +1,6 @@
 package com.qvainside.CapstoneProject.database.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import java.util.List;
 
@@ -19,17 +18,15 @@ public class Product {
     private Integer id;
 
 
-    @NotNull
+
     @Column(name = "product_name", nullable = false, length = 45)
     private String productName;
 
 
-    @NotNull
     @Column(name = "product_type", nullable = false, length = 45)
     private String productType;
 
 
-    @NotNull
     @Column(name = "location", nullable = false, length = 45)
     private String location;
 

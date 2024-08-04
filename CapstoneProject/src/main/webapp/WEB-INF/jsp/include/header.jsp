@@ -10,7 +10,6 @@
 
 <html>
 <head>
-    <meta charset="UTF-8">
     <title>Qvainside</title>
     <!-- Bootstrap CDN-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -33,10 +32,11 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/homepage.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/carrusel.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/registrationPage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/customerProfile.css">
 
     <script src="${pageContext.request.contextPath}/pub/js/popupSingIn.js"></script>
-    <script src="${pageContext.request.contextPath}/pub/js/qvainsideFunctions.js"></script>
 </head>
+
 <body>
 <section>
     <header>
@@ -47,8 +47,10 @@
                 <div class="col-md-auto">
                     <img src="${pageContext.request.contextPath}/pub/images/icons/logo.png" alt="Qvainside Logo">
                 </div>
+                <!-- --------------------------Log In and Register---------------------------------- -->
+
                 <div class="col" style="justify-content: center; display: flex; flex-direction: column; align-items:center;">
-                    <a  id="signInTrigger" class="aHome">Sign in</a>
+                    <a  id="signInTrigger" class="aHome">Log in</a>
                     <a href="${pageContext.request.contextPath}/registrationPage" class="aHome" onclick="goToRegistration()">Register</a>
                 </div>
                 <!-- Popup Form -->
@@ -63,16 +65,17 @@
             </div>
         </div>
 
-        <!-- -----------------------------------------------Navigation Bar -------------------->
+        <!---------------------------------------------Navigation Bar -------------------->
         <div class="navbar">
+            <div class="nav-item">
             <a href="${pageContext.request.contextPath}/homePage">HOME</a>
+            </div>
 
-            <div class="dropdown">
-                <button class="dropbtn">TOURS
+            <div class="nav-item dropdown">
+                <a href="${pageContext.request.contextPath}/homePage">TOURS</a>
                     <i class="fa fa-caret-down"></i>
-                </button>
                 <div class="dropdown-content">
-                    <a href="${pageContext.request.contextPath}/havanaTour">HABANA</a>
+                    <a href="${pageContext.request.contextPath}/havanaTour">HAVANA</a>
                     <a href="${pageContext.request.contextPath}/trinidadTour">TRINIDAD</a>
                     <a href="${pageContext.request.contextPath}/viñalesTour">VIÑALES</a>
                     <a href="${pageContext.request.contextPath}/oldVintageCars">OLD VINTAGE CARS TOUR</a>

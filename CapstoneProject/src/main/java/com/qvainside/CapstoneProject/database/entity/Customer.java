@@ -1,7 +1,6 @@
 package com.qvainside.CapstoneProject.database.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import java.util.List;
 
@@ -18,16 +17,12 @@ public class Customer {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @NotNull
     @Column(name = "name", nullable = false)
     private String name;
 
-    @NotNull
     @Column(name = "last_name", nullable = false, length = 100)
     private String lastName;
 
-
-    @NotNull
     @Column(name = "email", nullable = false, length = 45)
     private String email;
 
@@ -35,8 +30,6 @@ public class Customer {
     @Column(name = "city", length = 45)
     private String city;
 
-
-    @NotNull
     @Column(name = "country", nullable = false, length = 45)
     private String country;
 
@@ -44,8 +37,6 @@ public class Customer {
     @Column(name = "contact_number", length = 45)
     private String contactNumber;
 
-
-    @NotNull
     @Column(name = "password", nullable = false, length = 45)
     private String password;
 
