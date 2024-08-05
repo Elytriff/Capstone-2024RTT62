@@ -1,5 +1,3 @@
-
-
 // --------------------------- Validation function----------------------------
 
 function onSubmitRegistration() {
@@ -104,4 +102,3 @@ function onSubmitRegistration() {
     }
 
 };
-

@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/customerProfile.css">
 
     <script src="${pageContext.request.contextPath}/pub/js/popupSingIn.js"></script>
+    <script src="${pageContext.request.contextPath}/pub/js/qvainsideFunctions.js"></script>
 </head>
 
 <body>

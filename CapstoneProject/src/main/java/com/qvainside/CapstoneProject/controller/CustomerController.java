@@ -6,6 +6,9 @@ import com.qvainside.CapstoneProject.form.RegisterCustomerFormBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,26 +23,46 @@ public class CustomerController {
     private CustomerDAO customerDAO;
 
     @RequestMapping(value = "/registerCustomer", method = {RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView registerCustomer(RegisterCustomerFormBean form) {
+    public ModelAndView registerCustomer(RegisterCustomerFormBean form, BindingResult bindingResult) {
         ModelAndView response = new ModelAndView("/registrationPage");
-        response.addObject("form", form);
 
-        Customer customer = customerDAO.findById(form.getId());
-        if (customer == null) {
-            customer = new Customer();
+        if(form.getId() == null) {
+            Customer c = customerDAO.findByEmailContainingIgnoreCase(form.getEmail());
+            if (c != null) {
+                bindingResult.rejectValue("email", "email","Email already exists");
+            }
         }
-        customer.setName(form.getName());
-        customer.setLastName(form.getLastName());
-        customer.setCountry(form.getCountry());
-        customer.setCity(form.getCity());
-        customer.setEmail(form.getEmail());
-        customer.setContactNumber(form.getContactNumber());
-        customer.setPassword(form.getPassword());
 
-        customer = customerDAO.save(customer);
+        if (bindingResult.hasErrors()) {
+            for (ObjectError error : bindingResult.getAllErrors()) {
+                log.debug("Validation error : " + ((FieldError)error).getField() + error.getDefaultMessage());
+            }
+            response.addObject("bindingResult", bindingResult);
+            response.setViewName("/registrationPage");
 
-        response.setViewName("redirect:/customer/profile?id=" + customer.getId());
-        return response;
+            response.addObject("form", form);
+            return response;
+        }else {
+
+            response.addObject("form", form);
+
+            Customer customer = customerDAO.findById(form.getId());
+            if (customer == null) {
+                customer = new Customer();
+            }
+            customer.setName(form.getName());
+            customer.setLastName(form.getLastName());
+            customer.setCountry(form.getCountry());
+            customer.setCity(form.getCity());
+            customer.setEmail(form.getEmail());
+            customer.setContactNumber(form.getContactNumber());
+            customer.setPassword(form.getPassword());
+
+            customer = customerDAO.save(customer);
+
+            response.setViewName("redirect:/customer/profile?id=" + customer.getId());
+            return response;
+        }
     }
 
     @GetMapping("/profile")
