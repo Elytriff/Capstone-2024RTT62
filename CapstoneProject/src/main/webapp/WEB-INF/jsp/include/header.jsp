@@ -34,7 +34,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/registrationPage.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/customerProfile.css">
 
-    <script src="${pageContext.request.contextPath}/pub/js/popupSingIn.js"></script>
     <script src="${pageContext.request.contextPath}/pub/js/qvainsideFunctions.js"></script>
 </head>
 
@@ -51,10 +50,10 @@
                 <!-- --------------------------Log In and Register---------------------------------- -->
 
                 <div class="col" style="justify-content: center; display: flex; flex-direction: column; align-items:center;">
-                    <a  id="signInTrigger" class="aHome">Log in</a>
+                    <a  id="signInTrigger" href="${pageContext.request.contextPath}/account/loginPage" class="aHome">Log in</a>
                     <a href="${pageContext.request.contextPath}/registrationPage" class="aHome" onclick="goToRegistration()">Register</a>
                 </div>
-                <!-- Popup Form -->
+                <!-- Popup Form (Hidden) -->
                 <div id="popupForm">
                     <form id="signInForm">
                         <input type="text" placeholder="Username" id="username" required>
@@ -78,7 +77,7 @@
                 <div class="dropdown-content">
                     <a href="${pageContext.request.contextPath}/havanaTour">HAVANA</a>
                     <a href="${pageContext.request.contextPath}/trinidadTour">TRINIDAD</a>
-                    <a href="${pageContext.request.contextPath}/viñalesTour">VIÑALES</a>
+                    <a href="${pageContext.request.contextPath}/vinalesTour">VIÑALES</a>
                     <a href="${pageContext.request.contextPath}/oldVintageCars">OLD VINTAGE CARS TOUR</a>
                 </div>
             </div>

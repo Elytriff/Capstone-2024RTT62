@@ -27,9 +27,9 @@ public class indexController {
         return response;
     }
 
-    @GetMapping("/viñalesTour")
-    public ModelAndView viñalesPage() {
-        ModelAndView response = new ModelAndView("viñalesTour");
+    @GetMapping("/vinalesTour")
+    public ModelAndView vinalesPage() {
+        ModelAndView response = new ModelAndView("vinalesTour");
         return response;
     }
 
