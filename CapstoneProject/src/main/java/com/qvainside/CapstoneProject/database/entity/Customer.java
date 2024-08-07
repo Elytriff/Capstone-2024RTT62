@@ -2,6 +2,8 @@ package com.qvainside.CapstoneProject.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -43,5 +45,6 @@ public class Customer {
     @ToString.Exclude
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
+
 
 }

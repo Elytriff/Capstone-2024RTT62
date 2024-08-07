@@ -3,8 +3,10 @@ package com.qvainside.CapstoneProject.controller;
 import com.qvainside.CapstoneProject.database.dao.CustomerDAO;
 import com.qvainside.CapstoneProject.database.entity.Customer;
 import com.qvainside.CapstoneProject.form.RegisterCustomerFormBean;
+import com.qvainside.CapstoneProject.service.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -21,6 +23,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class CustomerController {
     @Autowired
     private CustomerDAO customerDAO;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private CustomerService customerService;
 
     @RequestMapping(value = "/registerCustomer", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView registerCustomer(RegisterCustomerFormBean form, BindingResult bindingResult) {
@@ -43,23 +50,7 @@ public class CustomerController {
             response.addObject("form", form);
             return response;
         }else {
-
-            response.addObject("form", form);
-
-            Customer customer = customerDAO.findById(form.getId());
-            if (customer == null) {
-                customer = new Customer();
-            }
-            customer.setName(form.getName());
-            customer.setLastName(form.getLastName());
-            customer.setCountry(form.getCountry());
-            customer.setCity(form.getCity());
-            customer.setEmail(form.getEmail());
-            customer.setContactNumber(form.getContactNumber());
-            customer.setPassword(form.getPassword());
-
-            customer = customerDAO.save(customer);
-
+            Customer customer = customerService.createCustomer(form);
             response.setViewName("redirect:/customer/profile?id=" + customer.getId());
             return response;
         }
@@ -77,7 +68,7 @@ public class CustomerController {
 
     @GetMapping("/edit")
     public ModelAndView editCustomer(@RequestParam(required = false) Integer id) {
-        ModelAndView response = new ModelAndView("/registrationPage");
+        ModelAndView response = new ModelAndView("registrationPage");
 
         RegisterCustomerFormBean form = new RegisterCustomerFormBean();
 
@@ -91,11 +82,14 @@ public class CustomerController {
                 form.setCity(customer.getCity());
                 form.setEmail(customer.getEmail());
                 form.setContactNumber(customer.getContactNumber());
-                form.setPassword(customer.getPassword());
+
+                String encodedPassword = passwordEncoder.encode(customer.getPassword());
+                form.setPassword(encodedPassword);
 
                 response.addObject("form", form);
             }
         }
+
         return response;
     }
 }

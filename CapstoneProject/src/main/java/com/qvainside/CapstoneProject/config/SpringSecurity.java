@@ -22,7 +22,7 @@ public class SpringSecurity {
         http.authorizeRequests()
                 .requestMatchers(
                         new AntPathRequestMatcher("/admin/**"),
-                        new AntPathRequestMatcher("/abc/**")).authenticated()
+                        new AntPathRequestMatcher("/profile/**")).authenticated()
                 .anyRequest().permitAll();
 
         http.formLogin(formLogin -> formLogin
