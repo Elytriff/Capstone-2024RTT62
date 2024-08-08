@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: oscar
@@ -40,6 +42,14 @@
 <body>
 <section>
     <header>
+
+        <div id="popupForm">
+            <form id="signInForm" action="/product">
+                <input type="text" placeholder="Type a destination or service" id="productSearch" value="${productInput}" name="product">
+                <button type="submit">Search</button>
+            </form>
+            <div id="errorMessages"></div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -50,17 +60,17 @@
                 <!-- --------------------------Log In and Register---------------------------------- -->
 
                 <div class="col" style="justify-content: center; display: flex; flex-direction: column; align-items:center;">
-                    <a  id="signInTrigger" href="${pageContext.request.contextPath}/account/loginPage" class="aHome">Log in</a>
-                    <a href="${pageContext.request.contextPath}/registrationPage" class="aHome" onclick="goToRegistration()">Register</a>
-                </div>
-                <!-- Popup Form (Hidden) -->
-                <div id="popupForm">
-                    <form id="signInForm">
-                        <input type="text" placeholder="Username" id="username" required>
-                        <input type="password" placeholder="Password" id="password" required>
-                        <button type="submit">Sign In</button>
-                    </form>
-                    <div id="errorMessages"></div>
+
+                    <sec:authorize access="!isAuthenticated()">
+                    <a href="${pageContext.request.contextPath}/account/loginPage" class="aHome">Log in</a>
+                        <a href="${pageContext.request.contextPath}/registrationPage" class="aHome" onclick="goToRegistration()">Register</a>
+                    </sec:authorize>
+
+                    <sec:authorize access="isAuthenticated()">
+                        <a href="${pageContext.request.contextPath}/account/logoutPage" class="aHome">Log out</a>
+                        <span class="nav-link"><sec:authentication property="name"/></span>
+                    </sec:authorize>
+
                 </div>
             </div>
         </div>
@@ -68,11 +78,11 @@
         <!---------------------------------------------Navigation Bar -------------------->
         <div class="navbar">
             <div class="nav-item">
-            <a href="${pageContext.request.contextPath}/homePage">HOME</a>
+            <a href="${pageContext.request.contextPath}/">HOME</a>
             </div>
 
             <div class="nav-item dropdown">
-                <a href="${pageContext.request.contextPath}/homePage">TOURS</a>
+                <a href="${pageContext.request.contextPath}/">TOURS</a>
                     <i class="fa fa-caret-down"></i>
                 <div class="dropdown-content">
                     <a href="${pageContext.request.contextPath}/havanaTour">HAVANA</a>

@@ -10,12 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class indexController {
 
     @GetMapping("/")
-    public ModelAndView index() {
-        ModelAndView response = new ModelAndView("index");
-        return response;
-    }
-
-    @GetMapping("/homePage")
     public ModelAndView homePage() {
         ModelAndView response = new ModelAndView("homePage");
         return response;

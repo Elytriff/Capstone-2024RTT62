@@ -31,7 +31,7 @@ public class SpringSecurity {
         http.logout(formLogout -> formLogout
                 .invalidateHttpSession(true)
                 .logoutUrl("/account/logoutPage")
-                .logoutSuccessUrl("/homePage"));
+                .logoutSuccessUrl("/"));
         return http.build();
     }
 
