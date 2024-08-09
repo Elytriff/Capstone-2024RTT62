@@ -1,7 +1,6 @@
 package com.qvainside.CapstoneProject.database.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import java.util.List;
 
@@ -47,7 +46,7 @@ public class Product {
 
     @ToString.Exclude
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Orderdetail> orderdetailList;
+    private List<OrderDetail> orderdetailList;
 
     @Column(name = "description")
     private String description;

@@ -1,7 +1,11 @@
 package com.qvainside.CapstoneProject.database.dao;
 
-import com.qvainside.CapstoneProject.database.entity.Orderdetail;
+import com.qvainside.CapstoneProject.database.entity.OrderDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
-public interface OrderdetailDAO extends JpaRepository<Orderdetail, Long> {
+public interface OrderdetailDAO extends JpaRepository<OrderDetail, Long> {
+
+    @Query(value = "select * from orderdetails where order_id = :orderId and product_id = :productId", nativeQuery = true)
+    OrderDetail isProductInCart(Integer orderId, Integer productId);
 }

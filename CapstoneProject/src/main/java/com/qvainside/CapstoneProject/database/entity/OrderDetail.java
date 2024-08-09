@@ -13,7 +13,7 @@ import java.util.Objects;
 @ToString
 @Entity
 @Table(name = "orderdetail", schema = "qvainside_capstone")
-public class Orderdetail {
+public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -39,6 +39,10 @@ public class Orderdetail {
     @Column(name = "number_of_pax", nullable = false)
     private Integer numberOfPax;
 
+    @Column(name = "quantity_ordered", nullable = false)
+    private Integer quantityOrdered;
+
+
     @Column(name = "total_price", nullable = false)
     private Double totalPrice;
 
@@ -49,7 +53,7 @@ public class Orderdetail {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Orderdetail that = (Orderdetail) o;
+        OrderDetail that = (OrderDetail) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 
