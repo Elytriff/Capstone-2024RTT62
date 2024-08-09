@@ -28,9 +28,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Lobster&display=swap"
+          rel="stylesheet">
 
-     <!-- internal CSS -->
+    <!-- internal CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/homepage.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/carrusel.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/registrationPage.css">
@@ -45,7 +46,8 @@
 
         <div id="popupForm">
             <form id="signInForm" action="/product">
-                <input type="text" placeholder="Type a destination or service" id="productSearch" value="${productInput}" name="product">
+                <input type="text" placeholder="Type a destination or service" id="productSearch"
+                       value="${productInput}" name="product">
                 <button type="submit">Search</button>
             </form>
             <div id="errorMessages"></div>
@@ -59,11 +61,13 @@
                 </div>
                 <!-- --------------------------Log In and Register---------------------------------- -->
 
-                <div class="col" style="justify-content: center; display: flex; flex-direction: column; align-items:center;">
+                <div class="col"
+                     style="justify-content: center; display: flex; flex-direction: column; align-items:center;">
 
                     <sec:authorize access="!isAuthenticated()">
-                    <a href="${pageContext.request.contextPath}/account/loginPage" class="aHome">Log in</a>
-                        <a href="${pageContext.request.contextPath}/registrationPage" class="aHome" onclick="goToRegistration()">Register</a>
+                        <a href="${pageContext.request.contextPath}/account/loginPage" class="aHome">Log in</a>
+                        <a href="${pageContext.request.contextPath}/registrationPage" class="aHome"
+                           onclick="goToRegistration()">Register</a>
                     </sec:authorize>
 
                     <sec:authorize access="isAuthenticated()">
@@ -78,12 +82,12 @@
         <!---------------------------------------------Navigation Bar -------------------->
         <div class="navbar">
             <div class="nav-item">
-            <a href="${pageContext.request.contextPath}/">HOME</a>
+                <a href="${pageContext.request.contextPath}/">HOME</a>
             </div>
 
             <div class="nav-item dropdown">
                 <a href="${pageContext.request.contextPath}/">TOURS</a>
-                    <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-down"></i>
                 <div class="dropdown-content">
                     <a href="${pageContext.request.contextPath}/havanaTour">HAVANA</a>
                     <a href="${pageContext.request.contextPath}/trinidadTour">TRINIDAD</a>
@@ -91,6 +95,13 @@
                     <a href="${pageContext.request.contextPath}/oldVintageCars">OLD VINTAGE CARS TOUR</a>
                 </div>
             </div>
+            <sec:authorize access="isAuthenticated()">
+                <sec:authorize access="hasAnyAuthority('ADMIN')">
+                    <div class="nav-item">
+                        <a href="${pageContext.request.contextPath}/createProduct">CREATE / EDIT PRODUCT</a>
+                    </div>
+                </sec:authorize>
+            </sec:authorize>
         </div>
     </header>
 </section>

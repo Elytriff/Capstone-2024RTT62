@@ -29,13 +29,17 @@ public class ProductController {
         List<Product> productsList = productDAO.findByProductNameOrTypeIgnoringCase(product);
         response.addObject("productsListToken", productsList);
 
+        log.info(productsList.toString());
+
         //only to preserve de input entered by user in the placeholder
         response.addObject("productInput", product);
 
         return response;
     }
+
+
     @PreAuthorize("hasAuthority('ADMIN')")
-    @GetMapping("/create")// this method is to see the create page but also to edit the product
+    @GetMapping("/createProduct")// this method is to see the create page but also to edit the product
     public ModelAndView createProduct(@RequestParam(required = false) Integer id) {
         ModelAndView response = new ModelAndView("createProductPage");
 
@@ -69,6 +73,7 @@ public class ProductController {
     public ModelAndView createSubmitProduct(@Valid CreateProductFormBean form, BindingResult bindingResult){
         ModelAndView response = new ModelAndView("createProductPage");
         response.addObject("form", form);
+        log.info(form.toString());
 
         if(bindingResult.hasErrors()){
             response.addObject("bindingResult", bindingResult);
@@ -94,7 +99,10 @@ public class ProductController {
 
         product = productDAO.save(product);
 
-        log.info(form.toString());
+        form.setId(product.getId());
+
+        // if you want to redirect to another page
+        //response.setView("redirect:/someohterurl?id=" + product.getId());
 
         return response;
     }

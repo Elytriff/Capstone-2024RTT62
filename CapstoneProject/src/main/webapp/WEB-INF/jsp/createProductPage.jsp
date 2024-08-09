@@ -34,6 +34,17 @@
                     <label for="productName">Product Name</label>
                 </div>
                 <!-- ------------------------------product Type -------------------->
+                <c:if test="${bindingResult.hasFieldErrors('productType')}">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <div class="text-danger">
+                                <c:forEach items="${bindingResult.getFieldErrors('productType')}" var="error">
+                                    ${error.defaultMessage}<br>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
                 <div class="column column-form">
                     <input
                             type="text"
@@ -45,6 +56,17 @@
                 </div>
             </div>
             <!-- ------------------Location -------------------->
+            <c:if test="${bindingResult.hasFieldErrors('location')}">
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <div class="text-danger">
+                            <c:forEach items="${bindingResult.getFieldErrors('location')}" var="error">
+                                ${error.defaultMessage}<br>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
             <div class="row row-form">
                 <div class="column column-form">
                     <input
