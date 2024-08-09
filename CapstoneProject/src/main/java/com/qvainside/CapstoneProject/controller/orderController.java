@@ -33,6 +33,8 @@ public class orderController {
 
     @Autowired
     private OrderdetailDAO orderdetailDAO;
+    @Autowired
+    private com.qvainside.CapstoneProject.service.orderService orderService;
 
     @GetMapping("/order/orderdetail")
     public ModelAndView orderDetail(@RequestParam Integer orderId) {
@@ -50,20 +52,7 @@ public class orderController {
         // first we can look up the product in the database given the incoming productId
         Product product = productDAO.findById(productId);
 
-        // seeing if customer is authenticated and catching the customer object
-        Customer customer = authenticatedUserUtilities.getCurrentUser();
-
-        Order order = orderDAO.findOrderInCartStatus(customer.getId());
-        if ( order == null ) {
-            // the user does not have an order in cart status so we need to create one
-            order = new Order();
-            order.setCustomer(customer);
-            order.setStatus("CART");
-            order.setCreateDate(new Date());
-            orderDAO.save(order);
-
-            log.info("order id: " + order.getId());
-        }
+        Order order = orderService.newOrder();
 
 //        // check if the product is already in the cart
 //        OrderDetail orderDetail = orderdetailDAO.isProductInCart(order.getId(), productId);
