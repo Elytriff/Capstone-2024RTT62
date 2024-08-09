@@ -8,7 +8,7 @@
 <div id="registrationPageBackground" class="grid-container">
     <div class="container container-form">
         <h2>create product page</h2>
-        <form action="/createSubmit">
+        <form action="/createProduct">
             <input type="hidden" name="id" value="${form.id}">
             <!-- -------------------------------name-------------------->
             <c:if test="${bindingResult.hasFieldErrors('productName')}">

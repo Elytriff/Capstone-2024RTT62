@@ -31,7 +31,7 @@ public class CustomerController {
 
     @RequestMapping(value = "/registerCustomer", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView registerCustomer(RegisterCustomerFormBean form, BindingResult bindingResult) {
-        ModelAndView response = new ModelAndView("/registrationPage");
+        ModelAndView response = new ModelAndView("registrationPage");
 
         if(form.getId() == null) {
             Customer c = customerDAO.findByEmailContainingIgnoreCase(form.getEmail());
