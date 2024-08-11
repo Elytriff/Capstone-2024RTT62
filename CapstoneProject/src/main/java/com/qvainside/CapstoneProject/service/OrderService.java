@@ -12,12 +12,13 @@ import java.util.Date;
 
 @Slf4j
 @Component
-public class orderService {
+public class OrderService {
     @Autowired
     private OrderDAO orderDAO;
 
     @Autowired
     AuthenticatedUserUtilities authenticatedUserUtilities;
+
 
     public Order newOrder(){
 

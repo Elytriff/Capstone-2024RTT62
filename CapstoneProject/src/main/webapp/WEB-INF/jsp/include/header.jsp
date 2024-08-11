@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/carrusel.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/registrationPage.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/customerProfile.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/orderDetail.css">
 
     <script src="${pageContext.request.contextPath}/pub/js/qvainsideFunctions.js"></script>
 </head>

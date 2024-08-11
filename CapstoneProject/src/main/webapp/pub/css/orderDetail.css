@@ -1,0 +1,15 @@
+.orderDetail{
+    border-spacing: 10px;
+    color: rgb(117, 76, 36);
+}
+
+.orderDetailTh > th{
+    padding: 0 10px;
+
+}
+
+.orderDetailTd > td{
+    text-align: left;
+    padding: 0 10px;
+    padding-top: 10px;
+}

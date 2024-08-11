@@ -34,7 +34,7 @@ public class OrderDetail {
     private Date bookingDate;
 
     @Column(name = "duration_hours", nullable = false, precision = 10)
-    private Double durationHours;
+    private Integer durationHours;
 
     @Column(name = "number_of_pax", nullable = false)
     private Integer numberOfPax;

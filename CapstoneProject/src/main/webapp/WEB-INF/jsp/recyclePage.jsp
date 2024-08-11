@@ -52,3 +52,55 @@
     </form>
     <div id="errorMessages"></div>
 </div>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------ -->
+
+<table id="profileTable">
+    <!-- ------------------Order Id -------------------->
+    <tr>
+        <td style="font-weight: bolder;">Order Id: </td>
+        <td>${detail.orderId}</td>
+    </tr>
+    <!-- ------------------Create date -------------------->
+    <tr>
+        <td style="font-weight: bolder;">Order created on:</td>
+        <td>${detail.createDate}</td>
+    </tr>
+    <!-- -------------Product Id -------------------->
+    <tr>
+        <td style="font-weight: bolder;">Product Id:</td>
+        <td>${detail.productId}</td>
+    </tr>
+    <!-- ---------- Booking date-------------------->
+    <tr>
+        <td style="font-weight: bolder;">Reservation date :</td>
+        <td>${detail.bookingDate}</td>
+    </tr>
+    <!-- ---------- Duration (hours)-------------------->
+    <tr>
+        <td style="font-weight: bolder;">Duration (hours):</td>
+        <td>${detail.durationHours}</td>
+    </tr>
+    <!-- ---------- Number of people-------------------->
+    <tr>
+        <td style="font-weight: bolder;">Number of people:</td>
+        <td>${detail.numberOfPax}</td>
+    </tr>
+    <!-- ---------- Quantity ordered-------------------->
+    <tr>
+        <td style="font-weight: bolder;">Quantity ordered:</td>
+        <td>${detail.quantityOrdered}</td>
+    </tr>
+    <!-- ---------- Total price-------------------->
+    <tr>
+        <td style="font-weight: bolder;">Total Price:</td>
+        <td>${detail.totalPrice}</td>
+    </tr>
+    <!-- ---------- Status-------------------->
+    <tr>
+        <td style="font-weight: bolder;">Status:</td>
+        <td>${detail.status}</td>
+
+        </c:forEach>
+
+</table>

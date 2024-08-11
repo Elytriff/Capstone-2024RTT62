@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface OrderdetailDAO extends JpaRepository<OrderDetail, Long> {
 
-    @Query(value = "select * from orderdetails where order_id = :orderId and product_id = :productId", nativeQuery = true)
+    @Query(value = "select * from orderdetail where order_id = :orderId and product_id = :productId", nativeQuery = true)
     OrderDetail isProductInCart(Integer orderId, Integer productId);
 }

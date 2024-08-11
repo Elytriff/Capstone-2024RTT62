@@ -8,6 +8,8 @@ import com.qvainside.CapstoneProject.database.entity.Customer;
 import com.qvainside.CapstoneProject.database.entity.Order;
 import com.qvainside.CapstoneProject.database.entity.OrderDetail;
 import com.qvainside.CapstoneProject.database.entity.Product;
+import com.qvainside.CapstoneProject.form.OrderDetailFormBean;
+import com.qvainside.CapstoneProject.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +23,7 @@ import java.util.Map;
 
 @Slf4j
 @Controller
-public class orderController {
+public class OrderController {
     @Autowired
     private OrderDAO orderDAO;
 
@@ -34,19 +36,23 @@ public class orderController {
     @Autowired
     private OrderdetailDAO orderdetailDAO;
     @Autowired
-    private com.qvainside.CapstoneProject.service.orderService orderService;
+    private OrderService orderService;
 
-    @GetMapping("/order/orderdetail")
+    @GetMapping("/order/orderDetail")
     public ModelAndView orderDetail(@RequestParam Integer orderId) {
-        ModelAndView response = new ModelAndView("order/orderdetail");
+        ModelAndView response = new ModelAndView("order/orderDetail");
 
-        List<Map<String,Object>> orderDetails = orderDAO.getOrderDetails(orderId);
-        response.addObject("orderDetails", orderDetails);
+        List<Map<String,Object>> orderDetail = orderDAO.getOrderDetails(orderId);
+        response.addObject("orderDetail", orderDetail);
+
+        log.info("Este es el objeto ListMap orderDetail: " + orderDetail);
+
         return response;
+
     }
 
     @GetMapping("/order/addToCart")
-    public ModelAndView addToCart(@RequestParam Integer productId) {
+    public ModelAndView addToCart(@RequestParam Integer productId, OrderDetailFormBean form) {
         ModelAndView response = new ModelAndView("order/addToCart");
 
         // first we can look up the product in the database given the incoming productId
@@ -54,26 +60,28 @@ public class orderController {
 
         Order order = orderService.newOrder();
 
-//        // check if the product is already in the cart
-//        OrderDetail orderDetail = orderdetailDAO.isProductInCart(order.getId(), productId);
-//        if ( orderDetail == null ) {
-//            // this product is not part of this order so we can create a new orderdetails
-//            orderDetail = new OrderDetail();
-//            orderDetail.setOrder(order);
-//            orderDetail.setProduct(product);// dropdown menu?
-//            orderDetail.setBookingDate(new Date());// cambiar esto tomarlo del form
-//            orderDetail.setDurationHours(1.0);// arreglar esto. pasarlo a INTeger y tomarlo del form
-//            orderDetail.setNumberOfPax(1);// cambiar esto tomarlo del form
-//            orderDetail.setQuantityOrdered(1);// cambiar esto tomarlo del form
-//            // hacer un query
-//            orderdetailDAO.save(orderDetail);
-//        }else {
-//            // the product is already in the cart so we need to increment the quantity
-//            orderDetail.setQuantityOrdered(orderDetail.getQuantityOrdered() + 1);
-//            orderdetailDAO.save(orderDetail);
-//        }
+        // check if the product is already in the cart
+        OrderDetail orderDetail = orderdetailDAO.isProductInCart(order.getId(), productId);
+        if ( orderDetail == null ) {
+            // this product is not part of this order so we can create a new orderdetails
+            orderDetail = new OrderDetail();
+            orderDetail.setOrder(order);
+            orderDetail.setProduct(product);// dropdown menu?
+            orderDetail.setBookingDate(form.getBookingDate());
+            orderDetail.setDurationHours(form.getDurationHours());
+            orderDetail.setNumberOfPax(form.getNumberOfPax());
+            orderDetail.setQuantityOrdered(form.getQuantityOrdered());
+            // hacer un query
+            orderdetailDAO.save(orderDetail);
+        }else {
+            // the product is already in the cart so we need to increment the quantity
+            orderDetail.setQuantityOrdered(orderDetail.getQuantityOrdered() + 1);
+            orderdetailDAO.save(orderDetail);
+        }
 
         log.info("product id: " + product.getId());
+        log.info("orderDetail: " + orderDetail.getId());
+        response.setViewName("redirect:/order/orderDetail?orderId=" + order.getId());
         return response;
     }
 
@@ -96,7 +104,7 @@ public class orderController {
             orderDAO.save(order);
         }
 
-        response.setViewName("redirect:/order/orderdetail");
+        response.setViewName("redirect:/order/orderDetail");
         return response;
     }
 }
