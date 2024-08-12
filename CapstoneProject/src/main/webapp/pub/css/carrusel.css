@@ -139,15 +139,43 @@ section {
         border-radius: 8px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.411);
     }
-
-    /*figcaption {
-        align-self: flex-end;
-        padding: 20px 20px 0 20px;
-        flex: 0 0 auto;
-        width: 25%;
-        min-width: 150px;
+/* ---------------------------------- Form for the booking process---------------------------------- */
+    .figcaptionForm {
+        padding-top: 30px;
+        border: none;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
     }
-    */
+
+    .figcaptionForm input[type="text"], .figcaptionForm input[type="date"] {
+        width: 50%;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: thin solid rgb(117, 76, 36);
+        border-radius: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .figcaptionForm input[type="text"]::placeholder,
+    .figcaptionForm input[type="date"]::placeholder {
+        color: rgb(117, 76, 36);
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .makeReservationButton {
+        background-color: rgb(145, 152, 14);
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .makeReservationButton:hover {
+        background-color: rgb(198, 206, 22);
+        border:solid;
+    }
+
+    /*------------------------- Description of the product ----------------------------*/
+
     .desccription {
         padding-left:20px;
         font-family: cursive;

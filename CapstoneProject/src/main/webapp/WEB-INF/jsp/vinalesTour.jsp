@@ -21,7 +21,7 @@
                         </div>
                         <figcaption id="viñalesViewPoint">
                             <!------------------------------------------figcaption here ----------------->
-
+                            <jsp:include page="include/bookVinalesTour.jsp" />
 
                         </figcaption>
                     </figure>
@@ -35,6 +35,7 @@
                         <figcaption id="tabacoVega">
 
                             <!------------------------------------------figcaption here ----------------->
+                            <jsp:include page="include/bookVinalesTour.jsp" />
 
                         </figcaption>
                     </figure>
@@ -48,6 +49,7 @@
                         <figcaption id="viñalesCave">
 
                             <!------------------------------------------figcaption here ----------------->
+                            <jsp:include page="include/bookVinalesTour.jsp" />
 
                         </figcaption>
                     </figure>
@@ -60,6 +62,7 @@
                         </div>
                         <figcaption id="viñalesValley">
                             <!------------------------------------------figcaption here ----------------->
+                            <jsp:include page="include/bookVinalesTour.jsp" />
                         </figcaption>
                     </figure>
                 </li>

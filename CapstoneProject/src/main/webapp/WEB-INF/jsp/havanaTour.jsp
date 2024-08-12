@@ -34,6 +34,8 @@
                             <br>
                             <div style="text-align: center"> ... <span class="lobster-regular">Old Square</span>...</div>
                         </span>
+                        <!------------------------------------------figcaption here ----------------->
+                        <jsp:include page="include/bookHavanaForm.jsp" />
                     </figure>
                 </li>
 
@@ -42,11 +44,8 @@
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/places/Havana/Malecon.JPG" alt="Malecon">
                         </div>
-                        <figcaption id="malecon">
-
-                            <!------------------------------------------figcaption here ----------------->
-
-                        </figcaption>
+                        <!------------------------------------------figcaption here ----------------->
+                        <jsp:include page="include/bookHavanaForm.jsp" />
                     </figure>
                 </li>
 
@@ -55,11 +54,8 @@
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/places/Havana/Callejon.JPG" alt="Hammel Alley">
                         </div>
-                        <figcaption id="callejon">
-
-                            <!------------------------------------------figcaption here ----------------->
-
-                        </figcaption>
+                        <!------------------------------------------figcaption here ----------------->
+                        <jsp:include page="include/bookHavanaForm.jsp" />
                     </figure>
                 </li>
 
@@ -68,9 +64,8 @@
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/places/Havana/PlazaCivica.jpg" alt="Civic Square">
                         </div>
-                        <figcaption id="plazaCivica">
-                            <!------------------------------------------figcaption here ----------------->
-                        </figcaption>
+                        <!------------------------------------------figcaption here ----------------->
+                        <jsp:include page="include/bookHavanaForm.jsp" />
                     </figure>
                 </li>
 

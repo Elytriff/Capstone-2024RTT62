@@ -20,5 +20,6 @@ public class OrderDetailFormBean {
 
     private Integer quantityOrdered;
 
+    private Double totalPrice;
 
 }

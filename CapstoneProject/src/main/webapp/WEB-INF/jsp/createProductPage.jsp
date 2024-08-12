@@ -167,7 +167,7 @@
                 <button type="submit">Create product</button>
             </div>
             <div class="nav-item">
-                <a href="/createSubmit"><input type="button" value="Button Text"></a>
+                <a href=""><input type="button" value="Button Text"></a>
             </div>
         </form>
     </div>

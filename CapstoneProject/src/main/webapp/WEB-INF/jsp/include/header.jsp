@@ -44,7 +44,7 @@
 <body>
 <section>
     <header>
-
+        <!-- --------------------------Search bar---------------------------------- -->
         <div id="popupForm">
             <form id="signInForm" action="/product">
                 <input type="text" placeholder="Type a destination or service" id="productSearch"
@@ -95,6 +95,11 @@
                     <a href="${pageContext.request.contextPath}/vinalesTour">VIÑALES</a>
                     <a href="${pageContext.request.contextPath}/oldVintageCars">OLD VINTAGE CARS TOUR</a>
                 </div>
+            </div>
+            <div class="nav-item">
+                <sec:authorize access="isAuthenticated()">
+                <a href="${pageContext.request.contextPath}/order/orderDetail">CART</a>
+                </sec:authorize>
             </div>
             <sec:authorize access="isAuthenticated()">
                 <sec:authorize access="hasAnyAuthority('ADMIN')">

@@ -39,21 +39,28 @@ public class OrderController {
     private OrderService orderService;
 
     @GetMapping("/order/orderDetail")
-    public ModelAndView orderDetail(@RequestParam Integer orderId) {
+    public ModelAndView orderDetail() {
         ModelAndView response = new ModelAndView("order/orderDetail");
 
-        List<Map<String,Object>> orderDetail = orderDAO.getOrderDetails(orderId);
-        response.addObject("orderDetail", orderDetail);
+        Customer customer = authenticatedUserUtilities.getCurrentUser();
 
-        log.info("Este es el objeto ListMap orderDetail: " + orderDetail);
+        List<Order> order = orderDAO.findByCustomer(customer);
+
+        if (order != null) {
+
+            List<Map<String,Object>> orderDetail = orderDAO.getOrderDetails(customer.getId());
+            response.addObject("orderDetail", orderDetail);
+        }
 
         return response;
-
     }
 
     @GetMapping("/order/addToCart")
     public ModelAndView addToCart(@RequestParam Integer productId, OrderDetailFormBean form) {
         ModelAndView response = new ModelAndView("order/addToCart");
+
+        response.addObject("form", form);
+        response.addObject("productIdToken", productId);
 
         // first we can look up the product in the database given the incoming productId
         Product product = productDAO.findById(productId);
@@ -71,6 +78,7 @@ public class OrderController {
             orderDetail.setDurationHours(form.getDurationHours());
             orderDetail.setNumberOfPax(form.getNumberOfPax());
             orderDetail.setQuantityOrdered(form.getQuantityOrdered());
+            orderDetail.setTotalPrice((double) (product.getPricePerPaxPerHour() * form.getDurationHours() * form.getNumberOfPax() * form.getQuantityOrdered()));
             // hacer un query
             orderdetailDAO.save(orderDetail);
         }else {
@@ -81,7 +89,7 @@ public class OrderController {
 
         log.info("product id: " + product.getId());
         log.info("orderDetail: " + orderDetail.getId());
-        response.setViewName("redirect:/order/orderDetail?orderId=" + order.getId());
+        response.setViewName("redirect:/cart?orderId=" + order.getId());
         return response;
     }
 
@@ -103,8 +111,8 @@ public class OrderController {
             order.setStatus("COMPLETE");
             orderDAO.save(order);
         }
-
-        response.setViewName("redirect:/order/orderDetail");
+        assert order != null;// esto lo puse yo
+        response.setViewName("redirect:/order/orderDetail?customerId=" + customer.getId());
         return response;
     }
 }

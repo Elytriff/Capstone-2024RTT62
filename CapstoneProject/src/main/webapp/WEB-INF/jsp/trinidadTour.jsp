@@ -22,7 +22,7 @@
                         </div>
                         <figcaption id="trinidadChurch">
                             <!------------------------------------------figcaption here ----------------->
-
+                            <jsp:include page="include/bookTrinidadForm.jsp" />
 
                         </figcaption>
                     </figure>
@@ -36,7 +36,7 @@
                         <figcaption id="trinidadSquare">
 
                             <!------------------------------------------figcaption here ----------------->
-
+                            <jsp:include page="include/bookTrinidadForm.jsp" />
                         </figcaption>
                     </figure>
                 </li>
@@ -49,7 +49,7 @@
                         <figcaption id="trinidadBeach">
 
                             <!------------------------------------------figcaption here ----------------->
-
+                            <jsp:include page="include/bookTrinidadForm.jsp" />
                         </figcaption>
                     </figure>
                 </li>
@@ -61,6 +61,7 @@
                         </div>
                         <figcaption id="plazaCivica">
                             <!------------------------------------------figcaption here ----------------->
+                            <jsp:include page="include/bookTrinidadForm.jsp" />
                         </figcaption>
                     </figure>
                 </li>
