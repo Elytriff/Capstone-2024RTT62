@@ -115,6 +115,36 @@ public class OrderController {
         response.setViewName("redirect:/order/orderDetail?customerId=" + customer.getId());
         return response;
     }
+
+    @GetMapping("/order/editOrderDetail")
+    public ModelAndView editOrderDetail(@RequestParam Integer orderDetailId) {
+        ModelAndView response = new ModelAndView("order/editOrderDetail");
+        OrderDetailFormBean form = new OrderDetailFormBean();
+
+        Customer currentCustomer = authenticatedUserUtilities.getCurrentUser();
+        OrderDetail orderDetail = orderdetailDAO.findOrderDetailById(orderDetailId);
+        Product product = productDAO.findProductInOrderDetail(orderDetailId);
+
+        if (orderDetailId != null) {
+            Order order = orderDAO.findOrderWithSpecificOrderDetailsId(orderDetailId);
+            if (order != null) {
+                order.setStatus("CART");
+                order.setCreateDate(new Date());
+                orderDAO.save(order);
+            }
+            form.setBookingDate(orderDetail.getBookingDate());
+            form.setDurationHours(orderDetail.getDurationHours());
+            form.setNumberOfPax(orderDetail.getNumberOfPax());
+            form.setQuantityOrdered(orderDetail.getQuantityOrdered());
+            form.setTotalPrice((double) (product.getPricePerPaxPerHour() * orderDetail.getDurationHours() * orderDetail.getNumberOfPax() * orderDetail.getQuantityOrdered()));
+
+            orderdetailDAO.save(orderDetail);
+            response.addObject("orderDetail", orderDetail);
+
+        }
+        response.setViewName("redirect:/order/orderDetail?customerId=" + currentCustomer.getId());
+        return response;
+    }
 }
 
 

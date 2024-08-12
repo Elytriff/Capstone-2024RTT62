@@ -20,6 +20,7 @@
     <th>Quantity ordered</th>
     <th>Total Price</th>
     <th>Status</th>
+    <th>Edit</th>
 </tr>
 <c:forEach items="${orderDetail}" var="detail">
     <tr class="orderDetailTd">
@@ -28,17 +29,15 @@
     <td>${detail.lastName}</td>
     <td>${detail.createDate}</td>
     <td>${detail.productId}</td>
-    <td>${detail.bookingDate}</Td>
-    <td>${detail.durationHours}</Td>
-    <td>${detail.numberOfPax}</Td>
-    <td>${detail.quantityOrdered}</Td>
-    <td>${detail.totalPrice}</Td>
-    <td>${detail.status}</Td>
+    <td>${detail.bookingDate}</td>
+    <td>${detail.durationHours}</td>
+    <td>${detail.numberOfPax}</td>
+    <td>${detail.quantityOrdered}</td>
+    <td>${detail.totalPrice}</td>
+    <td>${detail.status}</td>
+        <td> <a class="aEdit" href="${pageContext.request.contextPath}/order/editOrderDetail?orderDetailId=${detail.id}">Edit</a></Td>
     </tr>
 </c:forEach>
+</table>
 
-    <!-- -------------------------------------------Edit Button -------------------->
-    </table>
-    </div>
-    </div>
     <jsp:include page="../include/footer.jsp"/>

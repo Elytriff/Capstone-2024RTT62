@@ -67,7 +67,7 @@ public class ProductController {
     //----------------------------------------Edit Product--------------------------------------------
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @GetMapping("/editProduct")// this method is to see the create page but also to edit the product
+    @GetMapping("/editProduct")
     public ModelAndView editProduct(@RequestParam(required = false) Integer id) {
         ModelAndView response = new ModelAndView("createProductPage");
         CreateProductFormBean form = new CreateProductFormBean();

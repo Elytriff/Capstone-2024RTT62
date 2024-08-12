@@ -12,6 +12,8 @@ import java.util.Date;
 @ToString
 public class OrderDetailFormBean {
 
+    private Integer id;
+
     private Date bookingDate;
 
     private Integer durationHours;

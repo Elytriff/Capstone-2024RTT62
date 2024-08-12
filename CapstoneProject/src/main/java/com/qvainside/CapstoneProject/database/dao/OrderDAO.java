@@ -33,4 +33,11 @@ public interface OrderDAO extends JpaRepository<Order, Long> {
     Order findOrderInCartStatus(Integer customerId);
 
     List<Order> findByCustomer(Customer customer);
+
+    @Query(value = "select o.*\n" +
+            "from qvainside_capstone.order o, orderdetail od\n" +
+            "where o.id = od.order_id\n" +
+            "and od.id =:orderDetailId;", nativeQuery = true)
+    Order findOrderWithSpecificOrderDetailsId(Integer orderDetailId);
 }
+
