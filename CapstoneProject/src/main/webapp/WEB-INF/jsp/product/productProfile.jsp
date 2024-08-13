@@ -66,7 +66,11 @@
         </table>
         <!-- -------------------------------------------Edit Button -------------------->
         <div style="text-align: center">
-            <a class="aEdit" href="${pageContext.request.contextPath}/editProduct?id=${product.id}">Edit</a>
+            <a class="aEdit" href="${pageContext.request.contextPath}/editProduct?id=${product.id}">Edit</a><span> / </span>
+            <a class="aEdit" href="${pageContext.request.contextPath}/deleteProduct?productId=${product.id}">Delete</a> <span> / </span>
+            <a class="aEdit"
+               style="color: red"
+               href="${pageContext.request.contextPath}/productProfile${product.id}">Cancel</a>
         </div>
     </div>
 </div>

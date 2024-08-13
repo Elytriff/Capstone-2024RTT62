@@ -109,4 +109,18 @@ public class ProductController {
         return response;
     }
 
+    @GetMapping("/deleteProduct")
+    //by setting (required = false) we allow null to enter the controller so that spring dos not cause an error
+    public ModelAndView deleteProduct(@RequestParam (required = false) Integer productId) {
+        ModelAndView response = new ModelAndView("product/productProfile");
+
+        if(productId != null) {
+            Product product = productDAO.findById(productId);
+            productDAO.delete(product);
+            response.setViewName("redirect:/productProfile?id=" + product.getId());
+        }
+        return response;
+    }
+
 }
+

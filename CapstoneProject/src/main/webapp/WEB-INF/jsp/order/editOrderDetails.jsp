@@ -6,8 +6,9 @@
 
 <div id="registrationPageBackground" class="grid-container">
     <div class="container container-form" >
-        <form action="${pageContext.request.contextPath}/order/addToCart">
+        <form action="${pageContext.request.contextPath}/order/addToCart/${productId}" method="post">
             <input type="hidden" name="productId" value="${productId}">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <div class="editOrderForm">
                 <input type="text"
                        value="${form.bookingDate}"

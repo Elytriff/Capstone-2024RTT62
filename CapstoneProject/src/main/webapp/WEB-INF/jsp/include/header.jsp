@@ -99,7 +99,8 @@
             </div>
             <div class="nav-item">
                 <sec:authorize access="isAuthenticated()">
-                <a href="${pageContext.request.contextPath}/order/orderDetail">CART</a>
+                <a href="${pageContext.request.contextPath}/order/orderDetail">YOUR ORDERS</a>
+                    <a href="${pageContext.request.contextPath}/cart">CART</a>
                 </sec:authorize>
             </div>
             <sec:authorize access="isAuthenticated()">

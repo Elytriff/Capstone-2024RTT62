@@ -12,7 +12,7 @@ import java.util.Date;
 @ToString
 public class OrderDetailFormBean {
 
-    private Date bookingDate;
+    private String bookingDate;
 
     private Integer durationHours;
 

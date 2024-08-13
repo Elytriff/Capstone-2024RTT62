@@ -30,18 +30,21 @@
                 <p>Quantity ordered: ${cart.quantityOrdered}</p>
             </div>
         </div>
-        <div class="card"> <!-- --------------------------------------------Price and check out -------->
+        <div class="card"> <!-- --------------------------------------------Price  -------->
 
             <div class="price_info"> Total price: ${cart.totalPrice} usd</div>
             <div class="price_info"> Status: ${cart.status}</div>
-            <div><form action="${pageContext.request.contextPath}/order/checkout">
-                <button class="" type="submit">Check out</button>
-            </form></div>
+
+            <div style="text-align: center">
+                <a class="aEdit" href="${pageContext.request.contextPath}/order/editOrderDetail/${cart.orderDetailId}">Edit</a>
+            </div>
         </div>
     </c:forEach>
 </div>
+<!-- --------------------------------------------Check out  -------->
+<div><form action="${pageContext.request.contextPath}/order/checkout">
+    <button class="" type="submit">Check out</button>
+</form></div>
 <!-- -------------------------------------------Edit Button -------------------->
-<div style="text-align: center">
-    <a class="aEdit" href="">Edit</a>
-</div>
+
 <jsp:include page="include/footer.jsp"/>

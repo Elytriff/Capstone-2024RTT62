@@ -14,11 +14,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 @Slf4j
@@ -56,7 +61,7 @@ public class OrderController {
     }
 
     @GetMapping("/order/addToCart")
-    public ModelAndView addToCart(@RequestParam Integer productId, OrderDetailFormBean form) {
+    public ModelAndView addToCart(@RequestParam Integer productId, OrderDetailFormBean form) throws Exception {
         ModelAndView response = new ModelAndView("order/addToCart");
 
         response.addObject("form", form);
@@ -68,13 +73,15 @@ public class OrderController {
         Order order = orderService.newOrder();
 
         // check if the product is already in the cart
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+
         OrderDetail orderDetail = orderdetailDAO.isProductInCart(order.getId(), productId);
         if ( orderDetail == null ) {
             // this product is not part of this order so we can create a new orderdetails
             orderDetail = new OrderDetail();
             orderDetail.setOrder(order);
             orderDetail.setProduct(product);// dropdown menu?
-            orderDetail.setBookingDate(form.getBookingDate());
+            orderDetail.setBookingDate(formatter.parse(form.getBookingDate()));
             orderDetail.setDurationHours(form.getDurationHours());
             orderDetail.setNumberOfPax(form.getNumberOfPax());
             orderDetail.setQuantityOrdered(form.getQuantityOrdered());
@@ -93,6 +100,43 @@ public class OrderController {
         return response;
     }
 
+    @PostMapping("/order/addToCart/{productId}")
+    public ModelAndView addToCartSubmit(@PathVariable Integer productId, OrderDetailFormBean form) throws Exception {
+        ModelAndView response = new ModelAndView("order/addToCart");
+
+        response.addObject("form", form);
+        response.addObject("productIdToken", productId);
+
+        // first we can look up the product in the database given the incoming productId
+        Product product = productDAO.findById(productId);
+
+        Order order = orderService.newOrder();
+
+        // check if the product is already in the cart
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+
+        OrderDetail orderDetail = orderdetailDAO.isProductInCart(order.getId(), productId);
+        if ( orderDetail != null ) {
+            orderDetail.setBookingDate(formatter.parse(form.getBookingDate()));
+            orderDetail.setDurationHours(form.getDurationHours());
+            orderDetail.setNumberOfPax(form.getNumberOfPax());
+            orderDetail.setQuantityOrdered(form.getQuantityOrdered());
+            orderDetail.setTotalPrice((double) (product.getPricePerPaxPerHour() * form.getDurationHours() * form.getNumberOfPax() * form.getQuantityOrdered()));
+
+            orderdetailDAO.save(orderDetail);
+        }else {
+            // the product is already in the cart so we need to increment the quantity
+            orderDetail.setQuantityOrdered(orderDetail.getQuantityOrdered() + 1);
+            orderdetailDAO.save(orderDetail);
+        }
+
+        log.info("product id: " + product.getId());
+        log.info("orderDetail: " + orderDetail.getId());
+        response.setViewName("redirect:/cart?orderId=" + order.getId());
+        return response;
+    }
+
+
 
 
     @GetMapping("/order/checkout")
@@ -103,7 +147,7 @@ public class OrderController {
         Customer customer = authenticatedUserUtilities.getCurrentUser();
 
         // now we need to get the order from the database where the status is 'CART'
-        Order order = orderDAO.findOrderInCartStatus(customer.getId());
+        Order order = orderDAO.findOrderInCartStatus(customer.getId());// change this ot check out one detail
         if ( order == null ) {
             log.error("There is no order with items in the cart to checktout");
         } else {
@@ -114,10 +158,12 @@ public class OrderController {
         assert order != null;// esto lo puse yo
         response.setViewName("redirect:/order/orderDetail?customerId=" + customer.getId());
         return response;
+
+        //pulling orderdetails associated with an order id
     }
 
-    @GetMapping("/order/editOrderDetail")
-    public ModelAndView editOrderDetail(@RequestParam Integer orderDetailId) {
+    @GetMapping("/order/editOrderDetail/{orderDetailId}")
+    public ModelAndView editOrderDetail(@PathVariable Integer orderDetailId) {
         ModelAndView response = new ModelAndView("order/editOrderDetails");
         OrderDetailFormBean form = new OrderDetailFormBean();
 
@@ -125,16 +171,20 @@ public class OrderController {
         OrderDetail orderDetail = orderdetailDAO.findOrderDetailById(orderDetailId);
         log.info("editOrderDetail: " + orderDetail);
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
         Product product = productDAO.findProductInOrderDetail(orderDetailId);
 
         if (orderDetailId != null) {
+
             Order order = orderDAO.findOrderWithSpecificOrderDetailsId(orderDetailId);
             if (order != null) {
                 order.setStatus("CART");
                 order.setCreateDate(new Date());
                 orderDAO.save(order);
             }
-            form.setBookingDate(orderDetail.getBookingDate());
+
+            form.setBookingDate(sdf.format(orderDetail.getBookingDate()));
             form.setDurationHours(orderDetail.getDurationHours());
             form.setNumberOfPax(orderDetail.getNumberOfPax());
             form.setQuantityOrdered(orderDetail.getQuantityOrdered());
