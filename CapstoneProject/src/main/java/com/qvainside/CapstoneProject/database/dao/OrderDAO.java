@@ -12,7 +12,7 @@ public interface OrderDAO extends JpaRepository<Order, Long> {
 
     @Query(value= """
             select\s
-            od.quantity_ordered * od.duration_hours * od.number_of_pax * p.price_per_pax_per_hour as total_price,
+            od.quantity_ordered * od.duration_hours * od.number_of_pax * p.price_per_pax_per_hour as total_price, od.id as order_detail_id,
             c.name, c.last_name,
             o.id as order_id, o.create_date, o.status,
             p.id as product_id,

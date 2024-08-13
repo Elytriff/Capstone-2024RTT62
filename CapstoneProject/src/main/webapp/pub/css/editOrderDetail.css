@@ -1,0 +1,19 @@
+.editOrderForm{
+
+}
+
+.editOrderForm >input {
+    margin: 5px;
+    color: rgb(117, 76, 36);
+}
+.editOrderForm >input > label {
+    color: rgb(117, 76, 36);
+}
+
+.editOrderButton{
+    background-color: rgb(145, 152, 14);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}

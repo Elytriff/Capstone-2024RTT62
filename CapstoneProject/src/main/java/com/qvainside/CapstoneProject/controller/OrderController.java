@@ -118,11 +118,13 @@ public class OrderController {
 
     @GetMapping("/order/editOrderDetail")
     public ModelAndView editOrderDetail(@RequestParam Integer orderDetailId) {
-        ModelAndView response = new ModelAndView("order/editOrderDetail");
+        ModelAndView response = new ModelAndView("order/editOrderDetails");
         OrderDetailFormBean form = new OrderDetailFormBean();
 
         Customer currentCustomer = authenticatedUserUtilities.getCurrentUser();
         OrderDetail orderDetail = orderdetailDAO.findOrderDetailById(orderDetailId);
+        log.info("editOrderDetail: " + orderDetail);
+
         Product product = productDAO.findProductInOrderDetail(orderDetailId);
 
         if (orderDetailId != null) {
@@ -140,9 +142,11 @@ public class OrderController {
 
             orderdetailDAO.save(orderDetail);
             response.addObject("orderDetail", orderDetail);
+            response.addObject("product", product);
+            response.addObject("productId", product.getId());
+            response.addObject("form", form);
 
         }
-        response.setViewName("redirect:/order/orderDetail?customerId=" + currentCustomer.getId());
         return response;
     }
 }

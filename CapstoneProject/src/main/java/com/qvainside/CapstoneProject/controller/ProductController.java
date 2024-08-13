@@ -84,6 +84,7 @@ public class ProductController {
                 form.setColor(product.getColor());
                 form.setAirConditioner(product.getAirConditioner());
                 form.setDescription(product.getDescription());
+
                 form.setDurationInHours(product.getDurationInHours());
                 form.setDifficulty(product.getDifficulty());
                 form.setPricePerPaxPerHour(product.getPricePerPaxPerHour());

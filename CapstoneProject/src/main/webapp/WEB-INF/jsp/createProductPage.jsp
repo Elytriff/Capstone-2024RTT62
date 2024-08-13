@@ -9,7 +9,10 @@
     <div class="container container-form">
         <h2>create product page</h2>
         <form action="/createProduct">
+            <div class="column column-form">
             <input type="hidden" name="id" value="${form.id}">
+                <label for="id">Product Id</label>
+            </div>
             <!-- -------------------------------name-------------------->
             <c:if test="${bindingResult.hasFieldErrors('productName')}">
                 <div class="row">
@@ -172,5 +175,21 @@
         </form>
     </div>
 </div>
+
+<script type="text/javascript">
+    function submitFormWithId() {
+        var form = document.getElementById('productForm');
+        var productId = document.getElementById('productId').value;
+
+        // Verifica si el ID no está vacío
+        if (productId) {
+            // Redirige con el ID como parámetro
+            form.action = form.action + "?id=" + encodeURIComponent(productId);
+        }
+
+        // Permite que el formulario se envíe
+        return true;
+    }
+</script>
 
 <jsp:include page="include/footer.jsp"/>

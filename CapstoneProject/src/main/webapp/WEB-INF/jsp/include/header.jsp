@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/registrationPage.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/customerProfile.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/orderDetail.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/pub/css/editOrderDetail.css">
 
     <script src="${pageContext.request.contextPath}/pub/js/qvainsideFunctions.js"></script>
 </head>
@@ -104,7 +105,10 @@
             <sec:authorize access="isAuthenticated()">
                 <sec:authorize access="hasAnyAuthority('ADMIN')">
                     <div class="nav-item">
-                        <a href="${pageContext.request.contextPath}/createProduct">CREATE / EDIT PRODUCT</a>
+                        <a href="${pageContext.request.contextPath}/createProduct">CREATE</a><span> / </span>
+                    </div>
+                    <div class="nav-item">
+                        <a href="${pageContext.request.contextPath}/productProfile"> EDIT PRODUCT</a>
                     </div>
                 </sec:authorize>
             </sec:authorize>
