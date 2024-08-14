@@ -38,9 +38,6 @@
             <div style="text-align: center; font-size: xx-small">
                 <a class="aEdit" href="${pageContext.request.contextPath}/order/editOrderDetail/${cart.orderDetailId}">Edit</a>
             </div>
-            <div style="text-align: center">
-                <a class="aEdit" href="${pageContext.request.contextPath}/deleteOrderDetail/${cart.orderDetailId}"> Delete</a>
-            </div>
         </div>
     </c:forEach>
 </div>

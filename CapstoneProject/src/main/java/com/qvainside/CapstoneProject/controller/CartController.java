@@ -41,11 +41,13 @@ public class CartController {
     public ModelAndView deleteOrderDetail(@PathVariable Integer orderDetailId) {
         ModelAndView response = new ModelAndView("cartPage");
 
+        Order order = orderDAO.findOrderWithSpecificOrderDetailsId(orderDetailId);
         if(orderDetailId != null) {
             OrderDetail orderDetail = orderdetailDAO.findOrderDetailById(orderDetailId);
             orderdetailDAO.delete(orderDetail);
         }
-        Order order = orderDAO.findOrderWithSpecificOrderDetailsId(orderDetailId);
+
+
         response.setViewName("redirect:/cart?orderId="+ order.getId());
         return response;
 

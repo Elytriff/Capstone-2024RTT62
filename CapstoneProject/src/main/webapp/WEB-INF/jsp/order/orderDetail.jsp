@@ -36,6 +36,7 @@
     <td>${detail.totalPrice}</td>
     <td>${detail.status}</td>
         <td> <a class="aEdit" href="${pageContext.request.contextPath}/order/editOrderDetail/${detail.orderDetailId}">Edit</a></Td>
+        <td> <a class="aEdit" href="${pageContext.request.contextPath}/deleteOrderDetail/${detail.orderDetailId}"> Delete</a></Td>
     </tr>
 </c:forEach>
 </table>

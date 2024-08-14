@@ -47,9 +47,40 @@
                                 </tbody>
                             </table>
                         </div>
-                        <figcaption id="laNave">
+                        <!------------------------------------------Form Blue Chevy ----------------->
+                        <figcaption style="max-width: 30%">
+                            <div class ="figcaptionForm">
+                                <form  action="${pageContext.request.contextPath}/order/addToCart">
+                                    <input type="hidden" name="productId" value="4">
 
-
+                                    <input type="text"
+                                           value="${form.bookingDate}"
+                                           name="bookingDate"
+                                           placeholder="Date (yyyy-MM-dd)"
+                                    >
+                                    <select name="numberOfPax" style="padding-bottom: 10px">
+                                        <option value="" disabled selected> # of passengers</option>
+                                        <option value="1" ${form.numberOfPax == 1 ? 'selected' : ''}>1</option>
+                                        <option value="2" ${form.numberOfPax == 2 ? 'selected' : ''}>2</option>
+                                        <option value="3" ${form.numberOfPax == 3 ? 'selected' : ''}>3</option>
+                                        <option value="4" ${form.numberOfPax == 4 ? 'selected' : ''}>4</option>
+                                    </select>
+                                    <input type="text"
+                                           value="${form.durationHours}"
+                                           name="durationHours"
+                                           placeholder="Duration (# hours)"
+                                    >
+                                    <input type="text"
+                                           value="${form.quantityOrdered}"
+                                           name="quantityOrdered"
+                                           placeholder="Quantity (type a #)"
+                                    >
+                                    <div>
+                                        <button class = "makeReservationButton" type="submit">Add to cart</button>
+                                    </div>
+                                </form>
+                                <div id="bookingError"></div>
+                            </div>
                         </figcaption>
                     </figure>
                 </li>
@@ -88,9 +119,40 @@
                                 </tbody>
                             </table>
                         </div>
-                        <figcaption id="GoldenChevy">
+                        <!------------------------------------------Form Golden Chevy----------------->
+                        <figcaption style="max-width: 30%">
+                            <div class ="figcaptionForm">
+                                <form  action="${pageContext.request.contextPath}/order/addToCart">
+                                    <input type="hidden" name="productId" value="5">
 
-
+                                    <input type="text"
+                                           value="${form.bookingDate}"
+                                           name="bookingDate"
+                                           placeholder="Date (yyyy-MM-dd)"
+                                    >
+                                    <select name="numberOfPax" style="padding-bottom: 10px">
+                                        <option value="" disabled selected> # of passengers</option>
+                                        <option value="1" ${form.numberOfPax == 1 ? 'selected' : ''}>1</option>
+                                        <option value="2" ${form.numberOfPax == 2 ? 'selected' : ''}>2</option>
+                                        <option value="3" ${form.numberOfPax == 3 ? 'selected' : ''}>3</option>
+                                        <option value="4" ${form.numberOfPax == 4 ? 'selected' : ''}>4</option>
+                                    </select>
+                                    <input type="text"
+                                           value="${form.durationHours}"
+                                           name="durationHours"
+                                           placeholder="Duration (# hours)"
+                                    >
+                                    <input type="text"
+                                           value="${form.quantityOrdered}"
+                                           name="quantityOrdered"
+                                           placeholder="Quantity (type a #)"
+                                    >
+                                    <div>
+                                        <button class = "makeReservationButton" type="submit">Add to cart</button>
+                                    </div>
+                                </form>
+                                <div id="bookingError"></div>
+                            </div>
                         </figcaption>
                     </figure>
                 </li>
@@ -129,9 +191,40 @@
                                 </tbody>
                             </table>
                         </div>
-                        <figcaption id="GreenCar">
+                        <!------------------------------------------Form Green Car ----------------->
+                        <figcaption style="max-width: 30%">
+                            <div class ="figcaptionForm">
+                                <form  action="${pageContext.request.contextPath}/order/addToCart">
+                                    <input type="hidden" name="productId" value="6">
 
-
+                                    <input type="text"
+                                           value="${form.bookingDate}"
+                                           name="bookingDate"
+                                           placeholder="Date (yyyy-MM-dd)"
+                                    >
+                                    <select name="numberOfPax" style="padding-bottom: 10px">
+                                        <option value="" disabled selected> # of passengers</option>
+                                        <option value="1" ${form.numberOfPax == 1 ? 'selected' : ''}>1</option>
+                                        <option value="2" ${form.numberOfPax == 2 ? 'selected' : ''}>2</option>
+                                        <option value="3" ${form.numberOfPax == 3 ? 'selected' : ''}>3</option>
+                                        <option value="4" ${form.numberOfPax == 4 ? 'selected' : ''}>4</option>
+                                    </select>
+                                    <input type="text"
+                                           value="${form.durationHours}"
+                                           name="durationHours"
+                                           placeholder="Duration (# hours)"
+                                    >
+                                    <input type="text"
+                                           value="${form.quantityOrdered}"
+                                           name="quantityOrdered"
+                                           placeholder="Quantity (type a #)"
+                                    >
+                                    <div>
+                                        <button class = "makeReservationButton" type="submit">Add to cart</button>
+                                    </div>
+                                </form>
+                                <div id="bookingError"></div>
+                            </div>
                         </figcaption>
                     </figure>
                 </li>
@@ -169,9 +262,41 @@
                                 </tbody>
                             </table>
                         </div>
-                        <figcaption id="redCar">
+                        <!------------------------------------------Form Red Buick ----------------->
+                        <figcaption style="max-width: 30%">
+                            <div class ="figcaptionForm">
+                                <form  action="${pageContext.request.contextPath}/order/addToCart">
+                                    <input type="hidden" name="productId" value="7">
 
+                                    <input type="text"
+                                           value="${form.bookingDate}"
+                                           name="bookingDate"
+                                           placeholder="Date (yyyy-MM-dd)"
+                                    >
+                                    <select name="numberOfPax" style="padding-bottom: 10px">
+                                        <option value="" disabled selected> # of passengers</option>
+                                        <option value="1" ${form.numberOfPax == 1 ? 'selected' : ''}>1</option>
+                                        <option value="2" ${form.numberOfPax == 2 ? 'selected' : ''}>2</option>
+                                        <option value="3" ${form.numberOfPax == 3 ? 'selected' : ''}>3</option>
+                                        <option value="4" ${form.numberOfPax == 4 ? 'selected' : ''}>4</option>
+                                    </select>
 
+                                    <input type="text"
+                                           value="${form.durationHours}"
+                                           name="durationHours"
+                                           placeholder="Duration (# hours)"
+                                    >
+                                    <input type="text"
+                                           value="${form.quantityOrdered}"
+                                           name="quantityOrdered"
+                                           placeholder="Quantity (type a #)"
+                                    >
+                                    <div>
+                                        <button class = "makeReservationButton" type="submit">Add to cart</button>
+                                    </div>
+                                </form>
+                                <div id="bookingError"></div>
+                            </div>
                         </figcaption>
                     </figure>
                 </li>

@@ -39,5 +39,8 @@ public interface OrderDAO extends JpaRepository<Order, Long> {
             "where o.id = od.order_id\n" +
             "and od.id =:orderDetailId;", nativeQuery = true)
     Order findOrderWithSpecificOrderDetailsId(Integer orderDetailId);
+
+    Order findAssociatedOrderdetails();
+
 }
 
