@@ -35,16 +35,21 @@
             <div class="price_info"> Total price: ${cart.totalPrice} usd</div>
             <div class="price_info"> Status: ${cart.status}</div>
 
-            <div style="text-align: center">
+            <div style="text-align: center; font-size: xx-small">
                 <a class="aEdit" href="${pageContext.request.contextPath}/order/editOrderDetail/${cart.orderDetailId}">Edit</a>
+            </div>
+            <div style="text-align: center">
+                <a class="aEdit" href="${pageContext.request.contextPath}/deleteOrderDetail/${cart.orderDetailId}"> Delete</a>
             </div>
         </div>
     </c:forEach>
 </div>
 <!-- --------------------------------------------Check out  -------->
-<div><form action="${pageContext.request.contextPath}/order/checkout">
-    <button class="" type="submit">Check out</button>
-</form></div>
+<div>
+    <form action="${pageContext.request.contextPath}/order/checkout">
+        <button class="" type="submit">Check out</button>
+    </form>
+</div>
 <!-- -------------------------------------------Edit Button -------------------->
 
 <jsp:include page="include/footer.jsp"/>

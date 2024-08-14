@@ -169,7 +169,7 @@ public class OrderController {
 
         Customer currentCustomer = authenticatedUserUtilities.getCurrentUser();
         OrderDetail orderDetail = orderdetailDAO.findOrderDetailById(orderDetailId);
-        log.info("editOrderDetail: " + orderDetail);
+        log.info("editingOrderDetail: " + orderDetail);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 

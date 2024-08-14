@@ -19,36 +19,36 @@
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/cars/laNave.JPG" alt="Blue Chevy">
                         </div>
+                        <!------------------------------------------Table BLue Chevy ----------------->
+                        <div class="table-responsive" id="BlueChevyTable">
+                            <table class="table" style="width: auto; table-layout: auto;">
+                                <thead>
+                                <tr>
+                                    <th scope="col" colspan="2" style="text-align: center;">Characteristics</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">Model</th>
+                                    <td>Chevrolet 55</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Color</th>
+                                    <td>Blue</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Air conditioner</th>
+                                    <td>yes</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Passengers</th>
+                                    <td>4</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <figcaption id="laNave">
-                            <!------------------------------------------Table BLue Chevy ----------------->
 
-                            <div class="table-responsive" id="BlueChevyTable">
-                                <table class="table" style="width: auto; table-layout: auto;">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col" colspan="2" style="text-align: center;">Characteristics</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row">Model</th>
-                                        <td>Chevrolet 55</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Color</th>
-                                        <td>Blue</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Air conditioner</th>
-                                        <td>yes</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Passengers</th>
-                                        <td>4</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
 
                         </figcaption>
                     </figure>
@@ -59,37 +59,37 @@
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/cars/GoldenChevy.jpg" alt="Golden Chevy">
                         </div>
+                        <!------------------------------------------Table Golden Chevy ----------------->
+
+                        <div class="table-responsive" id="GoldenChevyTable">
+                            <table class="table" style="width: auto; table-layout: auto;">
+                                <thead>
+                                <tr>
+                                    <th scope="col" colspan="2" style="text-align: center;">Characteristics</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">Model</th>
+                                    <td>Ford 56</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Color</th>
+                                    <td>Golden & White</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Air conditioner</th>
+                                    <td>yes</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Passengers</th>
+                                    <td>4</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <figcaption id="GoldenChevy">
 
-                            <!------------------------------------------Table Golden Chevy ----------------->
-
-                            <div class="table-responsive" id="GoldenChevyTable">
-                                <table class="table" style="width: auto; table-layout: auto;">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col" colspan="2" style="text-align: center;">Characteristics</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row">Model</th>
-                                        <td>Ford 56</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Color</th>
-                                        <td>Golden & White</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Air conditioner</th>
-                                        <td>yes</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Passengers</th>
-                                        <td>4</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
 
                         </figcaption>
                     </figure>
@@ -100,37 +100,37 @@
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/cars/GreenCar.jpg" alt="Green Ford 52">
                         </div>
+                        <!------------------------------------------Table Green Car ----------------->
+
+                        <div class="table-responsive" id="GreenCarTable">
+                            <table class="table" style="width: auto; table-layout: auto;">
+                                <thead>
+                                <tr>
+                                    <th scope="col" colspan="2" style="text-align: center;">Characteristics</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">Model</th>
+                                    <td>Ford 52</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Color</th>
+                                    <td>Green</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Air conditioner</th>
+                                    <td>yes</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Passengers</th>
+                                    <td>4</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <figcaption id="GreenCar">
 
-                            <!------------------------------------------Table Green Car ----------------->
-
-                            <div class="table-responsive" id="GreenCarTable">
-                                <table class="table" style="width: auto; table-layout: auto;">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col" colspan="2" style="text-align: center;">Characteristics</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row">Model</th>
-                                        <td>Ford 52</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Color</th>
-                                        <td>Green</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Air conditioner</th>
-                                        <td>yes</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Passengers</th>
-                                        <td>4</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
 
                         </figcaption>
                     </figure>
@@ -141,36 +141,37 @@
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/cars/redCar.jpg" alt="Red Buick">
                         </div>
+                        <!------------------------------------------Table Red Buick ----------------->
+                        <div class="table-responsive" id="redCarTable">
+                            <table class="table" style="width: auto; table-layout: auto;">
+                                <thead>
+                                <tr>
+                                    <th scope="col" colspan="2" style="text-align: center;">Characteristics</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">Model</th>
+                                    <td>Buick</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Color</th>
+                                    <td>Red</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Air conditioner</th>
+                                    <td>No</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Passengers</th>
+                                    <td>4</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <figcaption id="redCar">
-                            <!------------------------------------------Table Red Buick ----------------->
 
-                            <div class="table-responsive" id="redCarTable">
-                                <table class="table" style="width: auto; table-layout: auto;">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col" colspan="2" style="text-align: center;">Characteristics</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row">Model</th>
-                                        <td>Buick</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Color</th>
-                                        <td>Red</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Air conditioner</th>
-                                        <td>No</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Passengers</th>
-                                        <td>4</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+
                         </figcaption>
                     </figure>
                 </li>
