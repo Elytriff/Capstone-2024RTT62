@@ -42,39 +42,74 @@
 
                 <li class="carousel__slide">
                     <figure>
+                        <span>
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/places/Trinidad/Trinidad open stairs.JPG" alt="Trinidad Square">
                         </div>
-                        <figcaption id="trinidadSquare">
+                        </span>
+                        <span id="oldSquare" class="desccription">
+                            <!------------------------------------------description here ----------------->
+                          <div style="text-align: center">3 hours walking in <span class="havana-city">Havana City</span>...</div>
+                            <br>
+                           <div style="text-align: center"> ...most populous ...</div>
+                            <br>
+                            <div class="kalnia-glaze-description" style="text-align: center"> ...happy... </div>
+                            <br>
+                            <div style="text-align: center"> ...quaint neighborhoods...</div>
+                            <br>
+                            <div style="text-align: center"> ... <span class="lobster-regular">Old Square</span>...</div>
+                        </span>
 
                             <!------------------------------------------figcaption here ----------------->
                             <jsp:include page="include/bookTrinidadForm.jsp" />
-                        </figcaption>
                     </figure>
                 </li>
 
                 <li class="carousel__slide">
                     <figure>
+                        <span>
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/places/Trinidad/beach in trinidad.jpg" alt="Trinidad beach">
                         </div>
-                        <figcaption id="trinidadBeach">
-
+                        </span>
+                        <span id="oldSquare" class="desccription">
+                            <!------------------------------------------description here ----------------->
+                          <div style="text-align: center">3 hours walking in <span class="havana-city">Havana City</span>...</div>
+                            <br>
+                           <div style="text-align: center"> ...most populous ...</div>
+                            <br>
+                            <div class="kalnia-glaze-description" style="text-align: center"> ...happy... </div>
+                            <br>
+                            <div style="text-align: center"> ...quaint neighborhoods...</div>
+                            <br>
+                            <div style="text-align: center"> ... <span class="lobster-regular">Old Square</span>...</div>
+                        </span>
                             <!------------------------------------------figcaption here ----------------->
                             <jsp:include page="include/bookTrinidadForm.jsp" />
-                        </figcaption>
                     </figure>
                 </li>
 
                 <li class="carousel__slide">
                     <figure>
+                        <span>
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/places/Trinidad/Trinidad_torre.JPG" alt="Trinidad Tower">
                         </div>
-                        <figcaption id="plazaCivica">
+                        </span>
+                        <span id="oldSquare" class="desccription">
+                            <!------------------------------------------description here ----------------->
+                          <div style="text-align: center">3 hours walking in <span class="havana-city">Havana City</span>...</div>
+                            <br>
+                           <div style="text-align: center"> ...most populous ...</div>
+                            <br>
+                            <div class="kalnia-glaze-description" style="text-align: center"> ...happy... </div>
+                            <br>
+                            <div style="text-align: center"> ...quaint neighborhoods...</div>
+                            <br>
+                            <div style="text-align: center"> ... <span class="lobster-regular">Old Square</span>...</div>
+                        </span>
                             <!------------------------------------------figcaption here ----------------->
                             <jsp:include page="include/bookTrinidadForm.jsp" />
-                        </figcaption>
                     </figure>
                 </li>
 

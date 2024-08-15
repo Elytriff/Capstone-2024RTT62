@@ -41,41 +41,75 @@
 
                 <li class="carousel__slide">
                     <figure>
+                        <span>
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/places/Viñales/Inside a Vega.JPG" alt="Tabaco Vega">
                         </div>
-                        <figcaption id="tabacoVega">
-
+                        </span>
+                        <span id="oldSquare" class="desccription">
+                            <!------------------------------------------description here ----------------->
+                          <div style="text-align: center">3 hours walking in <span class="havana-city">Havana City</span>...</div>
+                            <br>
+                           <div style="text-align: center"> ...most populous ...</div>
+                            <br>
+                            <div class="kalnia-glaze-description" style="text-align: center"> ...happy... </div>
+                            <br>
+                            <div style="text-align: center"> ...quaint neighborhoods...</div>
+                            <br>
+                            <div style="text-align: center"> ... <span class="lobster-regular">Old Square</span>...</div>
+                        </span>
                             <!------------------------------------------figcaption here ----------------->
                             <jsp:include page="include/bookVinalesTour.jsp" />
 
-                        </figcaption>
                     </figure>
                 </li>
 
                 <li class="carousel__slide">
                     <figure>
+                        <span>
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/places/Viñales/Viñales Cave.JPG" alt="Viñales Cave">
                         </div>
-                        <figcaption id="viñalesCave">
+                        </span>
+                        <span id="oldSquare" class="desccription">
+                            <!------------------------------------------description here ----------------->
+                          <div style="text-align: center">3 hours walking in <span class="havana-city">Havana City</span>...</div>
+                            <br>
+                           <div style="text-align: center"> ...most populous ...</div>
+                            <br>
+                            <div class="kalnia-glaze-description" style="text-align: center"> ...happy... </div>
+                            <br>
+                            <div style="text-align: center"> ...quaint neighborhoods...</div>
+                            <br>
+                            <div style="text-align: center"> ... <span class="lobster-regular">Old Square</span>...</div>
+                        </span>
 
                             <!------------------------------------------figcaption here ----------------->
                             <jsp:include page="include/bookVinalesTour.jsp" />
-
-                        </figcaption>
                     </figure>
                 </li>
 
                 <li class="carousel__slide">
                     <figure>
+                        <span>
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/places/Viñales/Viñales Valley.JPG" alt="Viñales Valley">
                         </div>
-                        <figcaption id="viñalesValley">
+                        </span>
+                        <span id="oldSquare" class="desccription">
+                            <!------------------------------------------description here ----------------->
+                          <div style="text-align: center">3 hours walking in <span class="havana-city">Havana City</span>...</div>
+                            <br>
+                           <div style="text-align: center"> ...most populous ...</div>
+                            <br>
+                            <div class="kalnia-glaze-description" style="text-align: center"> ...happy... </div>
+                            <br>
+                            <div style="text-align: center"> ...quaint neighborhoods...</div>
+                            <br>
+                            <div style="text-align: center"> ... <span class="lobster-regular">Old Square</span>...</div>
+                        </span>
                             <!------------------------------------------figcaption here ----------------->
                             <jsp:include page="include/bookVinalesTour.jsp" />
-                        </figcaption>
                     </figure>
                 </li>
 
