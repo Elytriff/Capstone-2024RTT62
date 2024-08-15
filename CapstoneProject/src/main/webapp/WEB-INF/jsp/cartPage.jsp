@@ -4,6 +4,18 @@
 
 <jsp:include page="include/header.jsp"/>
 
+<Style>
+    .checkoutButton {
+        background-color: rgb(145, 152, 14);
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .checkoutButton:hover {
+        background-color: rgb(198, 206, 22);
+    }
+</Style>
+
 <div class="cards">
     <c:forEach items="${cartDetail}" var="cart">
         <div class="card"> <!-- --------------------------------------------In the image -------->
@@ -35,16 +47,16 @@
             <div class="price_info"> Total price: ${cart.totalPrice} usd</div>
             <div class="price_info"> Status: ${cart.status}</div>
 
-            <div style="text-align: center; font-size: xx-small">
+            <div style="text-align: center; font-size:150%">
                 <a class="aEdit" href="${pageContext.request.contextPath}/order/editOrderDetail/${cart.orderDetailId}">Edit</a>
             </div>
         </div>
     </c:forEach>
 </div>
 <!-- --------------------------------------------Check out  -------->
-<div>
+<div style="text-align: center; margin-top: 20px;">
     <form action="${pageContext.request.contextPath}/order/checkout">
-        <button class="" type="submit">Check out</button>
+        <button class="checkoutButton" type="submit">Check out</button>
     </form>
 </div>
 <!-- -------------------------------------------Edit Button -------------------->

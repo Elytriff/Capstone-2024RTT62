@@ -4,6 +4,7 @@
 
 <jsp:include page="../include/header.jsp"/>
 
+
 <div id="registrationPageBackground" class="grid-container">
 <div class="container container-form" style="max-width: fit-content">
 <!-- ------------------Name -------------------->

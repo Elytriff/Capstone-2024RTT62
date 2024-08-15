@@ -101,6 +101,7 @@
                 <sec:authorize access="isAuthenticated()">
                 <a href="${pageContext.request.contextPath}/order/orderDetail">YOUR ORDERS</a>
                     <a href="${pageContext.request.contextPath}/cart">CART</a>
+                    <a href="${pageContext.request.contextPath}/customer/customerProfile">YOUR PROFILE</a>
                 </sec:authorize>
             </div>
             <sec:authorize access="isAuthenticated()">

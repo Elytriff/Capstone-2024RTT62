@@ -108,3 +108,15 @@
 </c:choose>
 
 <jsp:include page="include/footer.jsp"/>
+
+<div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" value="${form.title}"
+           placeholder="Event Title" class="form-control"
+           <c:if test="${bindingResult.hasFieldErrors('title')}">is-invalid</c:if>>
+    <c:if test="${bindingResult.hasFieldErrors('title')}">
+        <c:forEach items="${bindingResult.getFieldErrors('title')}" var="error">
+            <small id="emailHelp" class="form-text text-danger">${error.defaultMessage}</small>
+        </c:forEach>
+    </c:if>
+</div>
