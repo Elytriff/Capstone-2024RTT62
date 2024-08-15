@@ -16,9 +16,12 @@
 
                 <li class="carousel__slide">
                     <figure>
+                        <span>
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/cars/laNave.JPG" alt="Blue Chevy">
                         </div>
+                        </span>
+                        <span  class="desccription">
                         <!------------------------------------------Table BLue Chevy ----------------->
                         <div class="table-responsive" id="BlueChevyTable">
                             <table class="table" style="width: auto; table-layout: auto;">
@@ -47,10 +50,10 @@
                                 </tbody>
                             </table>
                         </div>
+                        </span>
                         <!------------------------------------------Form Blue Chevy ----------------->
-                        <figcaption style="max-width: 30%">
-                            <div class ="figcaptionForm">
-                                <form  action="${pageContext.request.contextPath}/order/addToCart">
+                            <div class ="figcaptionForm" style="width: 30%; padding-left: 15px">
+                                <div  action="${pageContext.request.contextPath}/order/addToCart">
                                     <input type="hidden" name="productId" value="4">
 
                                     <input type="text"
@@ -58,13 +61,16 @@
                                            name="bookingDate"
                                            placeholder="Date (yyyy-MM-dd)"
                                     >
-                                    <select name="numberOfPax" style="padding-bottom: 10px">
+                                    <div style="padding-bottom: 10px">
+                                    <select name="numberOfPax" style="padding-bottom: 6px; padding-top: 6px; border-radius: 5px; color: rgb(117, 76, 36);">
                                         <option value="" disabled selected> # of passengers</option>
                                         <option value="1" ${form.numberOfPax == 1 ? 'selected' : ''}>1</option>
                                         <option value="2" ${form.numberOfPax == 2 ? 'selected' : ''}>2</option>
                                         <option value="3" ${form.numberOfPax == 3 ? 'selected' : ''}>3</option>
                                         <option value="4" ${form.numberOfPax == 4 ? 'selected' : ''}>4</option>
                                     </select>
+                                    </div>
+
                                     <input type="text"
                                            value="${form.durationHours}"
                                            name="durationHours"
@@ -81,17 +87,18 @@
                                 </form>
                                 <div id="bookingError"></div>
                             </div>
-                        </figcaption>
                     </figure>
                 </li>
 
                 <li class="carousel__slide">
                     <figure>
+                        <span>
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/cars/GoldenChevy.jpg" alt="Golden Chevy">
                         </div>
+                        </span>
                         <!------------------------------------------Table Golden Chevy ----------------->
-
+                        <span  class="desccription">
                         <div class="table-responsive" id="GoldenChevyTable">
                             <table class="table" style="width: auto; table-layout: auto;">
                                 <thead>
@@ -119,9 +126,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        </span>
                         <!------------------------------------------Form Golden Chevy----------------->
-                        <figcaption style="max-width: 30%">
-                            <div class ="figcaptionForm">
+                            <div class ="figcaptionForm" style="width: 30%; padding-left: 15px">
                                 <form  action="${pageContext.request.contextPath}/order/addToCart">
                                     <input type="hidden" name="productId" value="5">
 
@@ -130,13 +137,15 @@
                                            name="bookingDate"
                                            placeholder="Date (yyyy-MM-dd)"
                                     >
-                                    <select name="numberOfPax" style="padding-bottom: 10px">
+                                    <div style="padding-bottom: 10px">
+                                    <select name="numberOfPax" style="padding-bottom: 6px; padding-top: 6px; border-radius: 5px; color: rgb(117, 76, 36);">
                                         <option value="" disabled selected> # of passengers</option>
                                         <option value="1" ${form.numberOfPax == 1 ? 'selected' : ''}>1</option>
                                         <option value="2" ${form.numberOfPax == 2 ? 'selected' : ''}>2</option>
                                         <option value="3" ${form.numberOfPax == 3 ? 'selected' : ''}>3</option>
                                         <option value="4" ${form.numberOfPax == 4 ? 'selected' : ''}>4</option>
                                     </select>
+                                    </div>
                                     <input type="text"
                                            value="${form.durationHours}"
                                            name="durationHours"
@@ -153,17 +162,18 @@
                                 </form>
                                 <div id="bookingError"></div>
                             </div>
-                        </figcaption>
                     </figure>
                 </li>
 
                 <li class="carousel__slide">
                     <figure>
+                        <span>
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/cars/GreenCar.jpg" alt="Green Ford 52">
                         </div>
+                        </span>
                         <!------------------------------------------Table Green Car ----------------->
-
+                        <span  class="desccription">
                         <div class="table-responsive" id="GreenCarTable">
                             <table class="table" style="width: auto; table-layout: auto;">
                                 <thead>
@@ -191,9 +201,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        </span>
                         <!------------------------------------------Form Green Car ----------------->
-                        <figcaption style="max-width: 30%">
-                            <div class ="figcaptionForm">
+                            <div class ="figcaptionForm" style="width: 30%; padding-left: 15px">
                                 <form  action="${pageContext.request.contextPath}/order/addToCart">
                                     <input type="hidden" name="productId" value="6">
 
@@ -202,13 +212,15 @@
                                            name="bookingDate"
                                            placeholder="Date (yyyy-MM-dd)"
                                     >
-                                    <select name="numberOfPax" style="padding-bottom: 10px">
+                                    <div style="padding-bottom: 10px">
+                                    <select name="numberOfPax" style="padding-bottom: 6px; padding-top: 6px; border-radius: 5px; color: rgb(117, 76, 36);">
                                         <option value="" disabled selected> # of passengers</option>
                                         <option value="1" ${form.numberOfPax == 1 ? 'selected' : ''}>1</option>
                                         <option value="2" ${form.numberOfPax == 2 ? 'selected' : ''}>2</option>
                                         <option value="3" ${form.numberOfPax == 3 ? 'selected' : ''}>3</option>
                                         <option value="4" ${form.numberOfPax == 4 ? 'selected' : ''}>4</option>
                                     </select>
+                                    </div>
                                     <input type="text"
                                            value="${form.durationHours}"
                                            name="durationHours"
@@ -225,16 +237,18 @@
                                 </form>
                                 <div id="bookingError"></div>
                             </div>
-                        </figcaption>
                     </figure>
                 </li>
 
                 <li class="carousel__slide">
                     <figure>
+                        <span>
                         <div>
                             <img src="${pageContext.request.contextPath}/pub/images/cars/redCar.jpg" alt="Red Buick">
                         </div>
+                        </span>
                         <!------------------------------------------Table Red Buick ----------------->
+                        <span  class="desccription">
                         <div class="table-responsive" id="redCarTable">
                             <table class="table" style="width: auto; table-layout: auto;">
                                 <thead>
@@ -262,9 +276,10 @@
                                 </tbody>
                             </table>
                         </div>
+                        </span>
                         <!------------------------------------------Form Red Buick ----------------->
-                        <figcaption style="max-width: 30%">
-                            <div class ="figcaptionForm">
+
+                            <div class ="figcaptionForm" style="width: 30%; padding-left: 15px">
                                 <form  action="${pageContext.request.contextPath}/order/addToCart">
                                     <input type="hidden" name="productId" value="7">
 
@@ -273,13 +288,15 @@
                                            name="bookingDate"
                                            placeholder="Date (yyyy-MM-dd)"
                                     >
-                                    <select name="numberOfPax" style="padding-bottom: 10px">
+                                    <div style="padding-bottom: 10px">
+                                    <select name="numberOfPax" style="padding-bottom: 6px; padding-top: 6px; border-radius: 5px; color: rgb(117, 76, 36);">
                                         <option value="" disabled selected> # of passengers</option>
                                         <option value="1" ${form.numberOfPax == 1 ? 'selected' : ''}>1</option>
                                         <option value="2" ${form.numberOfPax == 2 ? 'selected' : ''}>2</option>
                                         <option value="3" ${form.numberOfPax == 3 ? 'selected' : ''}>3</option>
                                         <option value="4" ${form.numberOfPax == 4 ? 'selected' : ''}>4</option>
                                     </select>
+                                    </div>
 
                                     <input type="text"
                                            value="${form.durationHours}"
@@ -297,7 +314,6 @@
                                 </form>
                                 <div id="bookingError"></div>
                             </div>
-                        </figcaption>
                     </figure>
                 </li>
 
