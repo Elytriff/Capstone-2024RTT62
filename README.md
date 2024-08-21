@@ -8,3 +8,14 @@ This is a sample for a webpage that accept tours  requests and manage the users 
 
 ![MySql](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white "MySql") ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white "Bootstrap") ![IntelijIdea](https://img.shields.io/badge/IntelliJ_IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white "IntelijIdea") ![VisuialStudioCode](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white "VisuialStudioCode")
 
+<details>
+  <summary><strong>Table of content</strong></summary>
+  
+  - [Introducción](#introducción)
+  - [Instalación](#instalación)
+  - [Uso](#uso)
+  - [Contribución](#contribución)
+  - [Licencia](#licencia)
+  
+</details>
+
