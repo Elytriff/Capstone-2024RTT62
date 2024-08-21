@@ -20,7 +20,7 @@ This is a sample for a webpage that accept tours  requests and manage the users 
   
 </details>
 
-## Home Page
+## <a id="home-page"></a>Home Page
 ![Qvainside Home Page](https://github.com/Elytriff/Capstone-2024RTT62/blob/main/imagenes/Qvainside%20Home%20Page.png "Qvainside Home Page")
 
 ## Registration Page
