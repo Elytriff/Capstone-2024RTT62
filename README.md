@@ -21,19 +21,18 @@ This is a sample for a webpage that accept tours  requests and manage the users 
 </details>
 
 ## Home Page
-Content for the Home Page section.
+![Qvainside Home Page](https://github.com/Elytriff/Capstone-2024RTT62/blob/main/imagenes/Qvainside%20Home%20Page.png "Qvainside Home Page")
 
 ## Registration Page
-Content for the Registration Page section.
+![Qvainside Registration Page](https://github.com/Elytriff/Capstone-2024RTT62/blob/main/imagenes/Qvainside%20Registration%20Page.png "Qvainside Registration Page")
 
 ## Tour Page Sample
-Content for the Tour Page Sample section.
-
+![Havana Tour Page](https://github.com/Elytriff/Capstone-2024RTT62/blob/main/imagenes/Havana%20Tour%20Booking%20Page.png "Havana Tour Page")
 ## Cart
-Content for the Cart section.
+![Cart](https://github.com/Elytriff/Capstone-2024RTT62/blob/main/imagenes/Qvainside%20Cart.png "Cart")
 
 ## Database ER Diagram
-Content for the Database ER Diagram section.
+![ER Diagram](https://github.com/Elytriff/Capstone-2024RTT62/blob/main/imagenes/Qvainside%20Database.png "ER Diagram")
 
 ## Sample of Code
 Content for the Sample of Code section.
