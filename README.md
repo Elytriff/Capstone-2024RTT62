@@ -9,13 +9,31 @@ This is a sample for a webpage that accept tours  requests and manage the users 
 ![MySql](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white "MySql") ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white "Bootstrap") ![IntelijIdea](https://img.shields.io/badge/IntelliJ_IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white "IntelijIdea") ![VisuialStudioCode](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white "VisuialStudioCode")
 
 <details>
-  <summary><strong>Table of content</strong></summary>
+  <summary><strong>Table of Content</strong></summary>
   
-  - [Introducción](#introducción)
-  - [Instalación](#instalación)
-  - [Uso](#uso)
-  - [Contribución](#contribución)
-  - [Licencia](#licencia)
+  - [Home Page](#home-page)
+  - [Registration Page](#registration-page)
+  - [Tour Page Sample](#tour-page-sample)
+  - [Cart](#cart)
+  - [Database ER Diagram](#database-er-diagram)
+  - [Sample of Code](#sample-of-code)
   
 </details>
 
+## Home Page
+Content for the Home Page section.
+
+## Registration Page
+Content for the Registration Page section.
+
+## Tour Page Sample
+Content for the Tour Page Sample section.
+
+## Cart
+Content for the Cart section.
+
+## Database ER Diagram
+Content for the Database ER Diagram section.
+
+## Sample of Code
+Content for the Sample of Code section.
