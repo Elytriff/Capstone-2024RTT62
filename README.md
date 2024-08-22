@@ -1,6 +1,6 @@
 # Qvainside Tour Agency Webpage
 
-This is a sample for a webpage that accept tours  requests and manage the users reservations. 
+This is a sample for a webpage that accepts tours requests and manages the users reservations. 
 
 #### Technologies and progamming languages used
 
