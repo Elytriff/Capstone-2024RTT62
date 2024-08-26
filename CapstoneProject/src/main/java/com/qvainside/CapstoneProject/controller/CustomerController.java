@@ -5,6 +5,7 @@ import com.qvainside.CapstoneProject.database.dao.CustomerDAO;
 import com.qvainside.CapstoneProject.database.entity.Customer;
 import com.qvainside.CapstoneProject.form.RegisterCustomerFormBean;
 import com.qvainside.CapstoneProject.service.CustomerService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class CustomerController {
     AuthenticatedUserUtilities authenticatedUserUtilities;
 
     @PostMapping( "/registerCustomer")
-    public ModelAndView registerCustomer(@Valid RegisterCustomerFormBean form, BindingResult bindingResult) {
+    public ModelAndView registerCustomer(@Valid RegisterCustomerFormBean form, BindingResult bindingResult, HttpSession session) {
         ModelAndView response = new ModelAndView("registrationPage");
 
         if(form.getId() == null) {
@@ -53,6 +54,7 @@ public class CustomerController {
             return response;
         }else {
             Customer customer = customerService.createCustomer(form);
+            authenticatedUserUtilities.manualAuthentication(session, form.getEmail(), form.getPassword());
             response.setViewName("redirect:/customer/customerProfile");
             return response;
         }
