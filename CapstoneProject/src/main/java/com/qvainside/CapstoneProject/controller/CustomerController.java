@@ -26,6 +26,7 @@ public class CustomerController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
     @Autowired
     private CustomerService customerService;
 

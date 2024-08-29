@@ -1,7 +1,9 @@
 package com.qvainside.CapstoneProject.controller;
 
+import com.qvainside.CapstoneProject.config.AuthenticatedUserUtilities;
 import com.qvainside.CapstoneProject.database.dao.OrderDAO;
 import com.qvainside.CapstoneProject.database.dao.OrderdetailDAO;
+import com.qvainside.CapstoneProject.database.entity.Customer;
 import com.qvainside.CapstoneProject.database.entity.Order;
 import com.qvainside.CapstoneProject.database.entity.OrderDetail;
 import lombok.extern.slf4j.Slf4j;
@@ -26,9 +28,32 @@ public class CartController {
     @Autowired
     private OrderDAO orderDAO;
 
+    @Autowired
+    AuthenticatedUserUtilities authenticatedUserUtilities;
+
     @GetMapping("/cart")
     public ModelAndView cartDetail(Integer orderId) {
         ModelAndView response = new ModelAndView("cartPage");
+
+        //getting the current customer
+        Customer currentCustomer = authenticatedUserUtilities.getCurrentUser();
+
+        //listing all the orders for that customer
+        List<Order> orders = orderDAO.findByCustomer(currentCustomer);
+
+        //iterating through the orders to find the orders with status "CART", only if the orderId is not provided
+        if (orderId == null) {
+            for (Order order : orders) {
+                if (order.getStatus().equals("CART")) {
+                    orderId = order.getId();
+                    break;
+                }
+            }
+            if (orderId == null) {
+                response.addObject("message", "No tienes artículos en el carrito.");
+                return response;  // return empty cart
+            }
+        }
 
         List<Map<String,Object>> cartDetail = orderdetailDAO.cartDetail(orderId);
         response.addObject("cartDetail", cartDetail);
