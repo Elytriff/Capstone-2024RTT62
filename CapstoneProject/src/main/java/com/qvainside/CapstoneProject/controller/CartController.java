@@ -61,20 +61,5 @@ public class CartController {
         return response;
     }
 
-    @GetMapping ("/deleteOrderDetail/{orderDetailId}")
-    //by setting (required = false) we allow null to enter the controller so that spring dos not cause an error
-    public ModelAndView deleteOrderDetail(@PathVariable Integer orderDetailId) {
-        ModelAndView response = new ModelAndView("cartPage");
 
-        Order order = orderDAO.findOrderWithSpecificOrderDetailsId(orderDetailId);
-        if(orderDetailId != null) {
-            OrderDetail orderDetail = orderdetailDAO.findOrderDetailById(orderDetailId);
-            orderdetailDAO.delete(orderDetail);
-        }
-
-
-        response.setViewName("redirect:/cart?orderId="+ order.getId());
-        return response;
-
-    }
 }

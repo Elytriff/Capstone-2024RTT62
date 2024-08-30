@@ -199,6 +199,21 @@ public class OrderController {
         }
         return response;
     }
+
+    @GetMapping ("/deleteOrderDetail/{orderDetailId}")
+    public ModelAndView deleteOrderDetail(@PathVariable Integer orderDetailId) {
+        ModelAndView response = new ModelAndView("order/orderDetail");
+
+        Order order = orderDAO.findOrderWithSpecificOrderDetailsId(orderDetailId);
+        if(orderDetailId != null) {
+            OrderDetail orderDetail = orderdetailDAO.findOrderDetailById(orderDetailId);
+            orderdetailDAO.delete(orderDetail);
+        }
+
+        response.setViewName("redirect:/order/orderDetail");
+        return response;
+
+    }
 }
 
 

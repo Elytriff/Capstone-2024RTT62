@@ -53,7 +53,7 @@
                         </span>
                         <!------------------------------------------Form Blue Chevy ----------------->
                             <div class ="figcaptionForm" style="width: 30%; padding-left: 15px">
-                                <div  action="${pageContext.request.contextPath}/order/addToCart">
+                                <form  action="${pageContext.request.contextPath}/order/addToCart">
                                     <input type="hidden" name="productId" value="4">
 
                                     <input type="text"
@@ -86,7 +86,7 @@
                                     </div>
                                 </form>
                                 <div id="bookingError"></div>
-                            </div>
+                            </form>
                     </figure>
                 </li>
 
