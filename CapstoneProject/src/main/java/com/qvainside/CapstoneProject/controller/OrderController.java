@@ -57,6 +57,9 @@ public class OrderController {
             response.addObject("orderDetail", orderDetail);
         }
 
+        Double finalTotal = orderDAO.findTotalAcrossAllOrdersByCustomer(customer.getId());
+        response.addObject("finalTotal", finalTotal);
+
         return response;
     }
 

@@ -19,7 +19,7 @@
     <th>Duration (hours)</th>
     <th>Number of people</th>
     <th>Quantity ordered</th>
-    <th>Total Price</th>
+    <th>Price</th>
     <th>Status</th>
     <th>Edit</th>
 </tr>
@@ -40,6 +40,11 @@
         <td> <a class="aEdit" href="${pageContext.request.contextPath}/deleteOrderDetail/${detail.orderDetailId}"> Delete</a></Td>
     </tr>
 </c:forEach>
+    <!-- ------------------FinalTotal -------------------->
+    <tr class="orderDetailTd">
+        <td colspan="9" style="text-align:right; font-weight:bold;">Total Price:</td>
+        <td colspan="4">${finalTotal}</td>
+    </tr>
 </table>
 
     <jsp:include page="../include/footer.jsp"/>
