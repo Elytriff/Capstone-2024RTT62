@@ -50,7 +50,7 @@ public class CartController {
                 }
             }
             if (orderId == null) {
-                response.addObject("message", "No tienes artículos en el carrito.");
+                response.addObject("message", "Your cart is empty.");
                 return response;  // return empty cart
             }
         }

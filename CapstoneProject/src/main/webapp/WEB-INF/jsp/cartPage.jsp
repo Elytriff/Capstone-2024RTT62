@@ -16,6 +16,17 @@
     }
 </Style>
 
+<c:if test="${not empty message}">
+    <div style="text-align: center; color: red; margin-top: 20px;">
+        <p>${message}</p>
+    </div>
+    <br>
+    <div style="text-align: center">
+        <a href="https://www.flaticon.es/iconos-gratis/carro-vacio" title="carro vacio iconos"></a>
+        <img src="${pageContext.request.contextPath}/pub/images/icons/carro-vacio.png" alt="empty shooping cart">
+    </div>
+</c:if>
+
 <div class="cards">
     <c:forEach items="${cartDetail}" var="cart">
         <div class="card"> <!-- --------------------------------------------In the image -------->
@@ -54,11 +65,12 @@
     </c:forEach>
 </div>
 <!-- --------------------------------------------Check out  -------->
-<div style="text-align: center; margin-top: 20px;">
-    <form action="${pageContext.request.contextPath}/order/checkout">
-        <button class="checkoutButton" type="submit">Check out</button>
-    </form>
-</div>
-<!-- -------------------------------------------Edit Button -------------------->
+<c:if test="${not empty cartDetail}">
+    <div style="text-align: center; margin-top: 20px;">
+        <form action="${pageContext.request.contextPath}/order/checkout">
+            <button class="checkoutButton" type="submit">Check out</button>
+        </form>
+    </div>
+</c:if>
 
 <jsp:include page="include/footer.jsp"/>
