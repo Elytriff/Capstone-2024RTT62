@@ -2,7 +2,9 @@ package com.qvainside.CapstoneProject.controller;
 
 import com.qvainside.CapstoneProject.config.AuthenticatedUserUtilities;
 import com.qvainside.CapstoneProject.database.dao.CustomerDAO;
+import com.qvainside.CapstoneProject.database.dao.UserRoleDAO;
 import com.qvainside.CapstoneProject.database.entity.Customer;
+import com.qvainside.CapstoneProject.database.entity.Order;
 import com.qvainside.CapstoneProject.form.RegisterCustomerFormBean;
 import com.qvainside.CapstoneProject.service.CustomerService;
 import jakarta.servlet.http.HttpSession;
@@ -16,6 +18,8 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Slf4j
 @RequestMapping("/customer")
@@ -32,6 +36,11 @@ public class CustomerController {
 
     @Autowired
     AuthenticatedUserUtilities authenticatedUserUtilities;
+
+    @Autowired
+    private UserRoleDAO userRoleDAO;
+
+    //-----------------------------------------Register Customer -------------------------------------------
 
     @PostMapping( "/registerCustomer")
     public ModelAndView registerCustomer(@Valid RegisterCustomerFormBean form, BindingResult bindingResult, HttpSession session) {
@@ -61,6 +70,8 @@ public class CustomerController {
         }
     }
 
+    //-----------------------------------------Customer Profile -------------------------------------------
+
     @GetMapping("/customerProfile")
     public ModelAndView customerDetails(){
         ModelAndView response = new ModelAndView("customer/customerProfile");
@@ -75,6 +86,8 @@ public class CustomerController {
 
         return response;
     }
+
+    //-----------------------------------------Edit Customer -------------------------------------------
 
     @GetMapping("/edit")
     public ModelAndView editCustomer(@RequestParam(required = false) Integer id) {
@@ -98,6 +111,37 @@ public class CustomerController {
 
                 response.addObject("form", form);
             }
+        }
+
+        return response;
+    }
+
+    //-----------------------------------------Delete Customer -------------------------------------------
+
+    @GetMapping("/delete")
+    public ModelAndView deleteCustomer(@RequestParam(required = false) Integer customerId) {
+        ModelAndView response = new ModelAndView("customer/customerProfile");
+
+        if (customerId != null) {
+            Customer customer = customerDAO.findById(customerId);
+
+            //if customer is not admin, delete customer and set orders as canceled
+            Boolean isCustomerAdmin = userRoleDAO.existsByCustomerIdAndRoleName(customerId, "ADMIN");
+            if(!isCustomerAdmin) {
+                List<Order> orders = customer.getOrders();
+                if(!orders.isEmpty()) {
+                    for (Order order : orders) {
+                        order.setStatus("CANCELED");
+                    }
+                }
+                customerDAO.delete(customer);
+                response.setViewName("redirect:/account/loginPage");
+
+            }else { //if customer is admin, return error message
+                response.setViewName("redirect:/customer/customerProfile");
+                response.addObject("message", " You have and Admin role, you cannot be deleted");
+            }
+
         }
 
         return response;

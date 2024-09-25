@@ -109,6 +109,8 @@ public class ProductController {
         return response;
     }
 
+    //---------------------------------------- Delete Product--------------------------------------------
+
     @GetMapping("/deleteProduct")
     //by setting (required = false) we allow null to enter the controller so that spring dos not cause an error
     public ModelAndView deleteProduct(@RequestParam (required = false) Integer productId) {
