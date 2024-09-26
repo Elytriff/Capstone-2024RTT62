@@ -11,6 +11,8 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -42,49 +44,68 @@ public class CustomerController {
 
     //-----------------------------------------Register Customer -------------------------------------------
 
-    @PostMapping( "/registerCustomer")
+    @PostMapping("/registerCustomer")
     public ModelAndView registerCustomer(@Valid RegisterCustomerFormBean form, BindingResult bindingResult, HttpSession session) {
         ModelAndView response = new ModelAndView("registrationPage");
 
-        if(form.getId() == null) {
-            Customer c = customerDAO.findByEmailIgnoreCase(form.getEmail());
-            if (c != null) {
-                bindingResult.rejectValue("email", "email","Email already exists");
+        try {
+            if (form.getId() == null) {
+                Customer c = customerDAO.findByEmailIgnoreCase(form.getEmail());
+                if (c != null) {
+                    bindingResult.rejectValue("email", "email", "Email already exists");
+                }
             }
-        }
-
-        if (bindingResult.hasErrors()) {
-            for (ObjectError error : bindingResult.getAllErrors()) {
-                log.debug("Validation error : " + ((FieldError)error).getField() + error.getDefaultMessage());
+            // Verify that the password and repeat password match
+            if (!form.getPassword().equals(form.getRepeatPassword())) {
+                bindingResult.rejectValue("repeatPassword", "repeatPassword", "Passwords do not match");
             }
-            response.addObject("bindingResult", bindingResult);
-            response.setViewName("registrationPage");
 
-            response.addObject("form", form);
-            return response;
-        }else {
+            if (bindingResult.hasErrors()) {
+                for (ObjectError error : bindingResult.getAllErrors()) {
+                    //This iterates over all the errors and log them
+                    log.debug("Validation error : " + ((FieldError) error).getField() + error.getDefaultMessage());
+                }
+                response.addObject("bindingResult", bindingResult);
+                response.setViewName("registrationPage");
+                response.addObject("form", form);
+                return response;
+            }
             Customer customer = customerService.createCustomer(form);
+            // this manual authentication will automatically log in the user after registration
             authenticatedUserUtilities.manualAuthentication(session, form.getEmail(), form.getPassword());
             response.setViewName("redirect:/customer/customerProfile");
             return response;
+
+        } catch (DataAccessException e) {
+            log.error("Database error while registering customer", e);
+            response.addObject("message", "An error occurred while processing your request. Please try again later.");
+            return response;
+        } catch (AuthenticationException e) {
+            log.error("Authentication error while registering customer", e);
+            response.addObject("message", "Authentication failed. Please try again.");
+            return response;
         }
     }
-
     //-----------------------------------------Customer Profile -------------------------------------------
 
     @GetMapping("/customerProfile")
-    public ModelAndView customerDetails(){
+    public ModelAndView customerDetails() {
         ModelAndView response = new ModelAndView("customer/customerProfile");
 
-        Customer currentCustomer = authenticatedUserUtilities.getCurrentUser();
+        try {
+            Customer currentCustomer = authenticatedUserUtilities.getCurrentUser();
 
-        if (currentCustomer == null) {
-            response.setViewName("redirect:/account/loginPage");
+            if (currentCustomer == null) {
+                response.setViewName("redirect:/account/loginPage");
+                return response;
+            }
+            response.addObject("customer", currentCustomer);
+            return response;
+        } catch (DataAccessException e) {
+            log.error("Database error while fetching customer profile", e);
+            response.addObject("message", "An error occurred while loading your profile. Please try again later.");
             return response;
         }
-        response.addObject("customer", currentCustomer);
-
-        return response;
     }
 
     //-----------------------------------------Edit Customer -------------------------------------------
@@ -127,9 +148,9 @@ public class CustomerController {
 
             //if customer is not admin, delete customer and set orders as canceled
             Boolean isCustomerAdmin = userRoleDAO.existsByCustomerIdAndRoleName(customerId, "ADMIN");
-            if(!isCustomerAdmin) {
+            if (!isCustomerAdmin) {
                 List<Order> orders = customer.getOrders();
-                if(!orders.isEmpty()) {
+                if (!orders.isEmpty()) {
                     for (Order order : orders) {
                         order.setStatus("CANCELED");
                     }
@@ -137,7 +158,7 @@ public class CustomerController {
                 customerDAO.delete(customer);
                 response.setViewName("redirect:/account/loginPage");
 
-            }else { //if customer is admin, return error message
+            } else { //if customer is admin, return error message
                 response.setViewName("redirect:/customer/customerProfile");
                 response.addObject("message", " You have and Admin role, you cannot be deleted");
             }

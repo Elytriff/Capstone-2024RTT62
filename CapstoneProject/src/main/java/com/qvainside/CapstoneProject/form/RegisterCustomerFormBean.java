@@ -33,4 +33,7 @@ public class RegisterCustomerFormBean {
 
     @NotEmpty(message = "Password is required.")
     private String password;
+
+    @NotEmpty(message = "Password must match.")
+    private String repeatPassword;
 }

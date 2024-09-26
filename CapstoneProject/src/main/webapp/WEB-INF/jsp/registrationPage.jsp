@@ -13,17 +13,6 @@
         <form action="${pageContext.request.contextPath}/customer/registerCustomer" method="post">
             <input type="hidden" name="id" value="${form.id}">
             <!-- -------------------------------Firstname-------------------->
-            <c:if test="${bindingResult.hasFieldErrors('name')}">
-                <div class="row">
-                    <div class="col-6 mb-3">
-                        <div class="text-danger">
-                            <c:forEach items="${bindingResult.getFieldErrors('name')}" var="error">
-                                ${error.defaultMessage}<br>
-                            </c:forEach>
-                        </div>
-                    </div>
-                </div>
-            </c:if>
             <div class="row row-form">
                 <div class="column column-form">
                     <input
@@ -35,7 +24,28 @@
                     <label for="name">First name</label>
                     <div id="firstNameHelp"></div>
                 </div>
+                <c:if test="${bindingResult.hasFieldErrors('name')}">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <div class="text-danger">
+                                <c:forEach items="${bindingResult.getFieldErrors('name')}" var="error">
+                                    ${error.defaultMessage}<br>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
                 <!-- ------------------------------Lastname -------------------->
+                <div class="column column-form">
+                    <input
+                            type="text"
+                            id="lastName"
+                            name="lastName"
+                            value="${form.lastName}"
+                    />
+                    <label for="lastName">Last name</label>
+                    <div id="lastNameHelp"></div>
+                </div>
                 <c:if test="${bindingResult.hasFieldErrors('lastName')}">
                     <div class="row">
                         <div class="col-6 mb-3">
@@ -47,29 +57,8 @@
                         </div>
                     </div>
                 </c:if>
-                <div class="column column-form">
-                    <input
-                            type="text"
-                            id="lastName"
-                            name="lastName"
-                            value="${form.lastName}"
-                    />
-                    <label for="lastName">Last name</label>
-                    <div id="lastNameHelp"></div>
-                </div>
             </div>
             <!-- ------------------Country -------------------->
-            <c:if test="${bindingResult.hasFieldErrors('country')}">
-                <div class="row">
-                    <div class="col-6 mb-3">
-                        <div class="text-danger">
-                            <c:forEach items="${bindingResult.getFieldErrors('country')}" var="error">
-                                ${error.defaultMessage}<br>
-                            </c:forEach>
-                        </div>
-                    </div>
-                </div>
-            </c:if>
             <div class="row row-form">
                 <div class="column column-form">
                     <input
@@ -81,6 +70,17 @@
                     <label for="country">Country</label>
                     <div id="countryHelp"></div>
                 </div>
+                <c:if test="${bindingResult.hasFieldErrors('country')}">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <div class="text-danger">
+                                <c:forEach items="${bindingResult.getFieldErrors('country')}" var="error">
+                                    ${error.defaultMessage}<br>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
                 <!-- ------------------City -------------------->
                 <div class="column column-form">
                     <input
@@ -93,18 +93,7 @@
                     <div id="cityHelp"></div>
                 </div>
             </div>
-            <!-- -------------------------------------Email and phone-------------------->
-            <c:if test="${bindingResult.hasFieldErrors('email')}">
-                <div class="row">
-                    <div class="col-6 mb-3">
-                        <div class="text-danger">
-                            <c:forEach items="${bindingResult.getFieldErrors('email')}" var="error">
-                                ${error.defaultMessage}<br>
-                            </c:forEach>
-                        </div>
-                    </div>
-                </div>
-            </c:if>
+            <!-- -------------------------------------Email ------------------->
             <div class="row row-form">
                 <div class="column column-form">
                     <input
@@ -116,6 +105,18 @@
                     <label for="email" class="label-form">Contact Email</label>
                     <div id="emailHelp"></div>
                 </div>
+                <c:if test="${bindingResult.hasFieldErrors('email')}">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <div class="text-danger">
+                                <c:forEach items="${bindingResult.getFieldErrors('email')}" var="error">
+                                    ${error.defaultMessage}<br>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+                <!-- -------------------------------------phone-------------------->
                 <div class="column column-form">
                     <input
                             type="text"
@@ -128,16 +129,16 @@
                 </div>
             </div>
             <!-- ------------------------------------------Password -------------------->
-
             <div class="email-password-divs">
                 <input
                         type="password"
                         id="password"
+                        name="password"
+                        value="${form.password}"
                 />
                 <label class="label-form" for="password">Password</label>
                 <div id="passwordHelp"></div>
             </div>
-            <!-- ------------------------------------------Repeat Password -------------------->
             <c:if test="${bindingResult.hasFieldErrors('password')}">
                 <div class="row">
                     <div class="col-6 mb-3">
@@ -149,16 +150,28 @@
                     </div>
                 </div>
             </c:if>
+            <!-- ------------------------------------------Repeat Password -------------------->
             <div class="email-password-divs">
                 <input
                         type="password"
                         id="repeatPassword"
-                        name="password"
-
+                        name="repeatPassword"
+                        value="${form.repeatPassword}"
                 />
                 <label for="repeatPassword" class="label-form">Repeat your password</label>
                 <div id="repeatPasswordHelp"></div>
             </div>
+            <c:if test="${bindingResult.hasFieldErrors('repeatPassword')}">
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <div class="text-danger">
+                            <c:forEach items="${bindingResult.getFieldErrors('repeatPassword')}" var="error">
+                                ${error.defaultMessage}<br>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
             <!-- ----------------------------------------Terms of service -------------------->
             <div style="padding: 25px; display: inline-block;">
                 <input type="checkbox" value="" id="termsOfService" required/>
@@ -168,7 +181,7 @@
             </div>
             <!-- -------------------------------------------Register Button and Log in link-------------------->
             <div class="register-button">
-                <button type="submit" onclick="onSubmitRegistration()">Register</button>
+                <button type="submit" onclick="onSubmitRegistration">Register</button>
             </div>
 
             <p>Have already an account? <a href="${pageContext.request.contextPath}/account/loginPage" class="aclass" style="margin-left: 8px;"><u>Login here</u></a></p>

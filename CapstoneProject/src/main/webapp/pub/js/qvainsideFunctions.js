@@ -21,6 +21,7 @@ function onSubmitRegistration() {
     let repeatpasswordValue = repeatpassword.value;
 
     if (firstNameValue == '') {  //-------------------------------Firstname validation------------------------------
+        firstName.classList.remove("is-invalid", "is-valid");
         console.log("Invalid input");
 
         // appply the boostrap is-invalid class to this input field so it looks red
@@ -32,6 +33,7 @@ function onSubmitRegistration() {
 
         submited = false;
     } else {
+        lastName.classList.remove("is-invalid", "is-valid");
         firstName.classList.add("is-valid");
         console.log("First name looks good");
     }
@@ -50,7 +52,7 @@ function onSubmitRegistration() {
     if (countryValue == '') {  // --------------------------------Country validation ---------------------------------------
         console.log("Invalid input");
         country.classList.add("is-invalid");
-        document.getElementById("country").textContent = "Country is required";
+        document.getElementById("countryHelp").textContent = "Country is required";
         document.getElementById("countryHelp").classList.add("invalid-feedback");
         submited = false;
     } else {
@@ -100,5 +102,6 @@ function onSubmitRegistration() {
     } else {
         repeatpassword.classList.add("is-valid")
     }
+
 
 };
